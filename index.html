@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mariam Mdoreuli — Portfolio</title>
-<meta name="description" content="Mariam Mdoreuli — Assistante en communication &amp; marketing digital. Portfolio, expériences et projets.">
+<meta name="description" content="Mariam Mdoreuli — Management, Communication &amp; Marketing Digital. Portfolio, expériences et réalisations.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -17,23 +17,27 @@
 
 <header class="site-header" id="top">
   <div class="container header-inner">
-    <a href="#top" class="logo">Mariam <span>Mdoreuli</span></a>
+    <a href="#top" class="logo">MM</a>
 
     <nav class="main-nav" id="main-nav">
       <a href="#profil"><span lang="fr">Profil</span><span lang="en">About</span></a>
       <a href="#competences"><span lang="fr">Compétences</span><span lang="en">Skills</span></a>
       <a href="#experiences"><span lang="fr">Expériences</span><span lang="en">Experience</span></a>
+      <a href="#education"><span lang="fr">Education</span><span lang="en">Education</span></a>
       <a href="#projets"><span lang="fr">Projets</span><span lang="en">Projects</span></a>
-      <a href="#formation"><span lang="fr">Formation</span><span lang="en">Education</span></a>
-      <a href="#contact"><span lang="fr">Contact</span><span lang="en">Contact</span></a>
+      <a href="#formations"><span lang="fr">Formations</span><span lang="en">Training</span></a>
+      <a href="#outils"><span lang="fr">Outils</span><span lang="en">Tools</span></a>
+      <a href="#passions"><span lang="fr">Passions</span><span lang="en">Passions</span></a>
     </nav>
 
     <div class="header-actions">
-      <button id="lang-toggle" class="lang-toggle" aria-label="Change language" type="button">
+      <button class="lang-toggle" type="button" aria-label="Change language">
         <span class="lang-option" data-set-lang="fr">FR</span>
         <span class="lang-sep">/</span>
         <span class="lang-option" data-set-lang="en">EN</span>
       </button>
+      <a href="#" class="btn-cv"><span lang="fr">Télécharger mon CV (PDF)</span><span lang="en">Download my CV (PDF)</span></a>
+      <a href="#contact" class="btn-contact-pill"><span lang="fr">Contact</span><span lang="en">Contact</span></a>
       <button id="nav-toggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" type="button">
         <span></span><span></span><span></span>
       </button>
@@ -46,102 +50,210 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-inner">
-      <p class="eyebrow" data-reveal>
-        <span lang="fr">Disponible immédiatement pour un poste en CDI · Diplômée en septembre 2026</span>
-        <span lang="en">Available immediately for a full-time position · Graduating September 2026</span>
-      </p>
-      <h1 data-reveal>Mariam Mdoreuli</h1>
-      <p class="hero-role" data-reveal>
-        <span lang="fr">Assistante en Communication &amp; Marketing Digital</span>
-        <span lang="en">Communication &amp; Digital Marketing Assistant</span>
-      </p>
-      <p class="hero-lede" data-reveal>
-        <span lang="fr">Contenu, branding et sites web pour des marques qui veulent avancer — de la stratégie éditoriale à la mise en ligne.</span>
-        <span lang="en">Content, branding and websites for brands that want to move forward — from editorial strategy to launch.</span>
-      </p>
-      <div class="hero-cta" data-reveal>
-        <a href="#projets" class="btn btn-primary">
-          <span lang="fr">Voir mes projets</span><span lang="en">View my projects</span>
-        </a>
-        <a href="#contact" class="btn btn-ghost">
-          <span lang="fr">Me contacter</span><span lang="en">Get in touch</span>
-        </a>
+      <div class="hero-text">
+        <p class="hero-eyebrow" data-reveal>
+          <span lang="fr">Disponible — Septembre 2026 · Recherche CDI</span>
+          <span lang="en">Available — September 2026 · Seeking full-time role</span>
+        </p>
+        <h1 data-reveal>Mdoreuli<br>Mariam</h1>
+        <p class="hero-role" data-reveal>
+          <span lang="fr">Management · Communication · Marketing Digital</span>
+          <span lang="en">Management · Communication · Digital Marketing</span>
+        </p>
+        <p class="hero-lede" data-reveal>
+          <span lang="fr">Contenu, branding et sites web pour des marques qui veulent avancer — de la stratégie éditoriale à la mise en ligne.</span>
+          <span lang="en">Content, branding and websites for brands that want to move forward — from editorial strategy to launch.</span>
+        </p>
+        <div class="hero-cta" data-reveal>
+          <a href="#projets" class="btn btn-primary"><span lang="fr">Voir mes projets</span><span lang="en">View my projects</span></a>
+          <a href="#contact" class="btn btn-outline"><span lang="fr">Me contacter</span><span lang="en">Get in touch</span></a>
+        </div>
+        <ul class="hero-meta" data-reveal>
+          <li>Rennes, France</li>
+          <li>FR · EN · RU · KA</li>
+          <li><span lang="fr">Master RSB 2026</span><span lang="en">RSB Master's 2026</span></li>
+        </ul>
       </div>
-      <ul class="hero-meta" data-reveal>
-        <li>📍 Rennes, France</li>
-        <li>🌐 <span lang="fr">Français, Anglais, Russe, Géorgien</span><span lang="en">French, English, Russian, Georgian</span></li>
-      </ul>
+      <div class="hero-visual">
+        <div class="ph">
+          <span class="ph-caption"><span lang="fr">portrait plein cadre — à ajouter</span><span lang="en">full-frame portrait — to add</span></span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- PROFIL -->
   <section id="profil" class="section">
-    <div class="container">
-      <p class="section-label" data-reveal><span lang="fr">Profil</span><span lang="en">About</span></p>
-      <h2 class="section-title" data-reveal><span lang="fr">Qui je suis</span><span lang="en">Who I am</span></h2>
-      <p class="section-body" data-reveal>
-        <span lang="fr">Assistante communication et marketing digital, je viens de finaliser un an d'alternance en e-commerce où j'ai piloté la création de contenu, le développement de sites web et la stratégie de marque pour plusieurs clients. Je recherche aujourd'hui un poste en CDI pour mettre ces compétences au service d'une entreprise ambitieuse.</span>
-        <span lang="en">Communication and digital marketing assistant, I recently completed a year-long work-study program in e-commerce, where I led content creation, website development and brand strategy for several clients. I'm now looking for a full-time position to put these skills to work for an ambitious company.</span>
-      </p>
+    <div class="container split">
+      <div class="split-body">
+        <p class="section-label" data-reveal><span class="accent">01 —</span> <span lang="fr">PROFIL</span><span lang="en">ABOUT</span></p>
+        <h2 class="section-title" data-reveal><span lang="fr">Qui suis-je ?</span><span lang="en">Who am I?</span></h2>
+        <p data-reveal>
+          <span lang="fr">Assistante communication et marketing digital, je viens de finaliser un an d'alternance en e-commerce où j'ai piloté la création de contenu, le développement de sites web et la stratégie de marque pour plusieurs clients.</span>
+          <span lang="en">Communication and digital marketing assistant, I recently completed a year-long work-study program in e-commerce, leading content creation, website development and brand strategy for several clients.</span>
+        </p>
+        <p data-reveal>
+          <span lang="fr">Je recherche aujourd'hui un poste en CDI pour mettre ces compétences au service d'une entreprise ambitieuse.</span>
+          <span lang="en">I'm now looking for a full-time position to put these skills to work for an ambitious company.</span>
+        </p>
+        <div class="stat-row" data-reveal>
+          <div>
+            <div class="stat-num">+20%</div>
+            <div class="stat-label"><span lang="fr">de clientèle après refonte de site</span><span lang="en">clientele after site redesign</span></div>
+          </div>
+          <div>
+            <div class="stat-num">4</div>
+            <div class="stat-label"><span lang="fr">langues parlées</span><span lang="en">languages spoken</span></div>
+          </div>
+          <div>
+            <div class="stat-num">3</div>
+            <div class="stat-label"><span lang="fr">sites clients livrés</span><span lang="en">client sites delivered</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="split-visual" data-reveal>
+        <div class="ph"><span class="ph-caption"><span lang="fr">photo portrait — à ajouter</span><span lang="en">portrait photo — to add</span></span></div>
+      </div>
     </div>
   </section>
 
   <!-- COMPETENCES -->
-  <section id="competences" class="section section-alt">
+  <section id="competences" class="section">
     <div class="container">
-      <p class="section-label" data-reveal><span lang="fr">Compétences</span><span lang="en">Skills</span></p>
-      <h2 class="section-title" data-reveal><span lang="fr">Ce que je sais faire</span><span lang="en">What I bring</span></h2>
-
-      <div class="skills-grid">
-        <div class="skill-card" data-reveal>
-          <h3><span lang="fr">Marketing &amp; Communication</span><span lang="en">Marketing &amp; Communication</span></h3>
-          <ul>
-            <li><span lang="fr">Stratégie digitale &amp; gestion de projet</span><span lang="en">Digital strategy &amp; project management</span></li>
-            <li><span lang="fr">Rédaction web, SEO &amp; storytelling</span><span lang="en">Web copywriting, SEO &amp; storytelling</span></li>
-            <li><span lang="fr">Prospection commerciale &amp; réponse aux appels d'offres</span><span lang="en">Business development &amp; tender responses</span></li>
-            <li><span lang="fr">Veille concurrentielle</span><span lang="en">Competitive intelligence</span></li>
-            <li><span lang="fr">Community management &amp; planification éditoriale</span><span lang="en">Community management &amp; editorial planning</span></li>
-            <li><span lang="fr">Branding &amp; identité visuelle</span><span lang="en">Branding &amp; visual identity</span></li>
-          </ul>
+      <div class="section-head">
+        <div class="section-head-text">
+          <p class="section-label" data-reveal><span class="accent">02 —</span> <span lang="fr">COMPÉTENCES</span><span lang="en">SKILLS</span></p>
+          <h2 class="section-title" data-reveal><span lang="fr">Ce que je sais faire</span><span lang="en">What I bring</span></h2>
         </div>
-
-        <div class="skill-card" data-reveal>
-          <h3><span lang="fr">Outils &amp; Logiciels</span><span lang="en">Tools &amp; Software</span></h3>
-          <ul>
-            <li><span lang="fr">Suite Adobe (Photoshop, Illustrator, InDesign) &amp; Affinity</span><span lang="en">Adobe Suite (Photoshop, Illustrator, InDesign) &amp; Affinity</span></li>
-            <li>Canva, Figma, CapCut</li>
-            <li><span lang="fr">WordPress, notions HTML</span><span lang="en">WordPress, basic HTML</span></li>
-            <li><span lang="fr">Microsoft 365 (Excel, analyse de données), Google Suite</span><span lang="en">Microsoft 365 (Excel, data analysis), Google Suite</span></li>
-            <li><span lang="fr">Certifiée PIX &amp; Python</span><span lang="en">PIX certified &amp; Python</span></li>
-          </ul>
+        <div class="carousel-nav" data-reveal>
+          <button class="carousel-btn" data-prev aria-label="Previous">‹</button>
+          <button class="carousel-btn" data-next aria-label="Next">›</button>
         </div>
+      </div>
 
-        <div class="skill-card" data-reveal>
-          <h3><span lang="fr">Langues</span><span lang="en">Languages</span></h3>
-          <ul class="lang-list">
-            <li><span lang="fr">Français</span><span lang="en">French</span> <em><span lang="fr">Courant</span><span lang="en">Fluent</span></em></li>
-            <li><span lang="fr">Anglais</span><span lang="en">English</span> <em><span lang="fr">Courant</span><span lang="en">Fluent</span></em></li>
-            <li><span lang="fr">Russe</span><span lang="en">Russian</span> <em><span lang="fr">Bilingue</span><span lang="en">Bilingual</span></em></li>
-            <li><span lang="fr">Géorgien</span><span lang="en">Georgian</span> <em><span lang="fr">Bilingue</span><span lang="en">Bilingual</span></em></li>
-          </ul>
+      <div data-carousel>
+        <div class="carousel-track">
+
+          <div class="skill-card">
+            <div class="card-top-row">
+              <span class="card-eyebrow"><span lang="fr">MARKETING &amp; COMMUNICATION</span><span lang="en">MARKETING &amp; COMMUNICATION</span></span>
+              <span class="card-counter">01/07</span>
+            </div>
+            <ul>
+              <li><span lang="fr">Stratégie digitale, SEO, content marketing</span><span lang="en">Digital strategy, SEO, content marketing</span></li>
+              <li><span lang="fr">Gestion des réseaux sociaux &amp; community management</span><span lang="en">Social media management &amp; community management</span></li>
+              <li><span lang="fr">Campagnes multi-canales et planification éditoriale</span><span lang="en">Multi-channel campaigns and editorial planning</span></li>
+              <li><span lang="fr">Veille concurrentielle</span><span lang="en">Competitive intelligence</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="card-top-row">
+              <span class="card-eyebrow"><span lang="fr">CRÉATION &amp; DESIGN</span><span lang="en">CREATION &amp; DESIGN</span></span>
+              <span class="card-counter">02/07</span>
+            </div>
+            <ul>
+              <li><span lang="fr">Conception visuelle sur Canva, Photoshop, Illustrator</span><span lang="en">Visual design in Canva, Photoshop, Illustrator</span></li>
+              <li><span lang="fr">Identité visuelle et supports de communication</span><span lang="en">Visual identity and communication materials</span></li>
+              <li><span lang="fr">Web design (WordPress, Shopify)</span><span lang="en">Web design (WordPress, Shopify)</span></li>
+              <li><span lang="fr">Branding et positionnement de marque</span><span lang="en">Branding and brand positioning</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="card-top-row">
+              <span class="card-eyebrow"><span lang="fr">RÉDACTION SEO</span><span lang="en">SEO WRITING</span></span>
+              <span class="card-counter">03/07</span>
+            </div>
+            <ul>
+              <li><span lang="fr">Articles de blog optimisés</span><span lang="en">Optimized blog articles</span></li>
+              <li><span lang="fr">Fiches produits et newsletters</span><span lang="en">Product pages and newsletters</span></li>
+              <li><span lang="fr">Recherche de mots-clés et maillage interne</span><span lang="en">Keyword research and internal linking</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="card-top-row">
+              <span class="card-eyebrow"><span lang="fr">DÉVELOPPEMENT WEB</span><span lang="en">WEB DEVELOPMENT</span></span>
+              <span class="card-counter">04/07</span>
+            </div>
+            <ul>
+              <li><span lang="fr">Création de sites web</span><span lang="en">Website creation</span></li>
+              <li><span lang="fr">Design web et mise en page</span><span lang="en">Web design and layout</span></li>
+              <li><span lang="fr">Création de pages produit</span><span lang="en">Product page creation</span></li>
+              <li><span lang="fr">Notions HTML, certifiée Python</span><span lang="en">Basic HTML, Python certified</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="card-top-row">
+              <span class="card-eyebrow"><span lang="fr">STRATÉGIE &amp; PROSPECTION</span><span lang="en">STRATEGY &amp; OUTREACH</span></span>
+              <span class="card-counter">05/07</span>
+            </div>
+            <ul>
+              <li><span lang="fr">Analyse des concurrents et création de persona</span><span lang="en">Competitor analysis and persona creation</span></li>
+              <li><span lang="fr">Calendrier de publication et campagnes ads</span><span lang="en">Publishing calendar and ad campaigns</span></li>
+              <li><span lang="fr">Recherche de clientèle, cold call, emailing</span><span lang="en">Lead generation, cold calling, emailing</span></li>
+              <li><span lang="fr">Réponse aux appels d'offres</span><span lang="en">Tender responses</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="card-top-row">
+              <span class="card-eyebrow"><span lang="fr">LANGUES</span><span lang="en">LANGUAGES</span></span>
+              <span class="card-counter">06/07</span>
+            </div>
+            <div class="lang-grid">
+              <div class="lang-row"><strong><span lang="fr">Français</span><span lang="en">French</span></strong><em><span lang="fr">Courant</span><span lang="en">Fluent</span></em></div>
+              <div class="lang-row"><strong><span lang="fr">Anglais</span><span lang="en">English</span></strong><em><span lang="fr">Courant</span><span lang="en">Fluent</span></em></div>
+              <div class="lang-row"><strong><span lang="fr">Russe</span><span lang="en">Russian</span></strong><em><span lang="fr">Bilingue</span><span lang="en">Bilingual</span></em></div>
+              <div class="lang-row"><strong><span lang="fr">Géorgien</span><span lang="en">Georgian</span></strong><em><span lang="fr">Bilingue</span><span lang="en">Bilingual</span></em></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="card-top-row">
+              <span class="card-eyebrow"><span lang="fr">QUALITÉS PERSONNELLES</span><span lang="en">SOFT SKILLS</span></span>
+              <span class="card-counter">07/07</span>
+            </div>
+            <ul>
+              <li><span lang="fr">Communication claire et impactante</span><span lang="en">Clear, impactful communication</span></li>
+              <li><span lang="fr">Esprit créatif et sens du détail</span><span lang="en">Creative mindset and attention to detail</span></li>
+              <li><span lang="fr">Adaptabilité et curiosité</span><span lang="en">Adaptability and curiosity</span></li>
+              <li><span lang="fr">Suivi des performances et reporting</span><span lang="en">Performance tracking and reporting</span></li>
+            </ul>
+          </div>
+
         </div>
+        <div class="carousel-progress"><div class="carousel-progress-bar"></div></div>
       </div>
     </div>
   </section>
 
   <!-- EXPERIENCES -->
-  <section id="experiences" class="section">
+  <section id="experiences" class="section section-white">
     <div class="container">
-      <p class="section-label" data-reveal><span lang="fr">Parcours</span><span lang="en">Background</span></p>
-      <h2 class="section-title" data-reveal><span lang="fr">Expériences professionnelles</span><span lang="en">Professional Experience</span></h2>
+      <div class="section-head">
+        <div class="section-head-text">
+          <p class="section-label" data-reveal><span class="accent">03 —</span> <span lang="fr">EXPÉRIENCES</span><span lang="en">EXPERIENCE</span></p>
+          <h2 class="section-title" data-reveal><span lang="fr">Expériences professionnelles</span><span lang="en">Professional Experience</span></h2>
+        </div>
+        <div class="carousel-nav" data-reveal>
+          <button class="carousel-btn" data-prev aria-label="Previous">‹</button>
+          <button class="carousel-btn" data-next aria-label="Next">›</button>
+        </div>
+      </div>
 
-      <div class="timeline">
+      <div data-carousel>
+        <div class="carousel-track">
 
-        <article class="timeline-item" data-reveal>
-          <div class="timeline-date">2025 — 2026</div>
-          <div class="timeline-content">
+          <article class="exp-card">
+            <div class="card-top-row">
+              <span class="exp-date">2025 — 2026</span>
+              <span class="card-counter">01/03</span>
+            </div>
             <h3><span lang="fr">Assistante Communication &amp; Marketing Digital</span><span lang="en">Communication &amp; Digital Marketing Assistant</span></h3>
-            <p class="timeline-org">Komete — E-commerce <span lang="fr">(Réalité Virtuelle)</span><span lang="en">(Virtual Reality)</span>, Rennes · <span lang="fr">Stage puis alternance</span><span lang="en">Internship, then work-study</span></p>
+            <p class="exp-org">Komete — <span lang="fr">E-commerce (Réalité Virtuelle), Rennes · Stage puis alternance</span><span lang="en">E-commerce (Virtual Reality), Rennes · Internship, then work-study</span></p>
             <ul>
               <li><span lang="fr">Pilotage du calendrier éditorial et publication de contenu sur les réseaux sociaux</span><span lang="en">Managed the editorial calendar and published content across social media</span></li>
               <li><span lang="fr">Rédaction de contenu SEO : articles de blog, fiches produits et newsletters</span><span lang="en">Wrote SEO content: blog articles, product pages and newsletters</span></li>
@@ -150,152 +262,349 @@
               <li><span lang="fr">Prospection commerciale et rédaction de réponses à appels d'offres</span><span lang="en">Business development and tender response writing</span></li>
               <li><span lang="fr">Veille concurrentielle, analyse de données et service client</span><span lang="en">Competitive intelligence, data analysis and customer service</span></li>
             </ul>
-          </div>
-        </article>
+          </article>
 
-        <article class="timeline-item" data-reveal>
-          <div class="timeline-date">2024</div>
-          <div class="timeline-content">
-            <h3><span lang="fr">Création d'un site web pour une entreprise indépendante</span><span lang="en">Website creation for an independent business</span></h3>
-            <p class="timeline-org">Le Champ des Possibles · <span lang="fr">Stage, Rennes</span><span lang="en">Internship, Rennes</span></p>
+          <article class="exp-card">
+            <div class="card-top-row">
+              <span class="exp-date">2024</span>
+              <span class="card-counter">02/03</span>
+            </div>
+            <h3><span lang="fr">Web développeur</span><span lang="en">Web Developer</span></h3>
+            <p class="exp-org">Le Champ des Possibles · <span lang="fr">Stage, Rennes</span><span lang="en">Internship, Rennes</span></p>
             <ul>
               <li><span lang="fr">Conception et développement du site web</span><span lang="en">Website design and development</span></li>
               <li><span lang="fr">Optimisation du référencement naturel</span><span lang="en">SEO optimization</span></li>
               <li><span lang="fr">Design graphique et branding digital</span><span lang="en">Graphic design and digital branding</span></li>
             </ul>
-            <p class="timeline-result">
-              <span lang="fr">Résultat : +20&nbsp;% d'augmentation de la clientèle après la mise en ligne du site</span>
+            <p class="exp-result">
+              <span lang="fr">Résultat : +20 % d'augmentation de la clientèle après la mise en ligne du site</span>
               <span lang="en">Result: +20% increase in clientele after the site went live</span>
             </p>
-          </div>
-        </article>
+          </article>
 
-        <article class="timeline-item" data-reveal>
-          <div class="timeline-date">2024</div>
-          <div class="timeline-content">
-            <h3><span lang="fr">Création d'identité visuelle</span><span lang="en">Visual identity creation</span></h3>
-            <p class="timeline-org">ADM Plaquiste · <span lang="fr">Freelance</span><span lang="en">Freelance</span></p>
+          <article class="exp-card">
+            <div class="card-top-row">
+              <span class="exp-date">2024</span>
+              <span class="card-counter">03/03</span>
+            </div>
+            <h3><span lang="fr">Brand designer</span><span lang="en">Brand Designer</span></h3>
+            <p class="exp-org">ADM Plaquiste · <span lang="fr">Freelance</span><span lang="en">Freelance</span></p>
             <ul>
               <li><span lang="fr">Développement du visuel de la marque</span><span lang="en">Developed the brand's visual identity</span></li>
               <li><span lang="fr">Création de logo et supports de communication</span><span lang="en">Created logo and communication materials</span></li>
               <li><span lang="fr">Stratégie de positionnement et branding</span><span lang="en">Positioning strategy and branding</span></li>
             </ul>
-            <p class="timeline-result">
+            <p class="exp-result">
               <span lang="fr">Résultat : identité visuelle conçue pour le lancement réussi de l'entreprise</span>
               <span lang="en">Result: visual identity designed for the company's successful launch</span>
             </p>
-          </div>
-        </article>
+          </article>
 
-        <article class="timeline-item" data-reveal>
-          <div class="timeline-date">2024</div>
-          <div class="timeline-content">
-            <h3><span lang="fr">Service client, caisse, restauration / bar</span><span lang="en">Customer service, cashier, food &amp; beverage</span></h3>
-            <p class="timeline-org">Festival Interceltique, Lorient</p>
-          </div>
-        </article>
+        </div>
+        <div class="carousel-progress"><div class="carousel-progress-bar"></div></div>
+      </div>
+    </div>
+  </section>
 
+  <!-- QUOTE -->
+  <section class="section section-dark quote-section">
+    <div class="container">
+      <p class="quote-text" data-reveal>
+        <span lang="fr">Une marque se retient par <strong>ce qu'elle publie</strong>, pas par ce qu'elle promet.</span>
+        <span lang="en">A brand is remembered for <strong>what it publishes</strong>, not what it promises.</span>
+      </p>
+      <p class="quote-label" data-reveal><span lang="fr">Ma façon de travailler</span><span lang="en">How I work</span></p>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="container">
+      <p class="section-label" data-reveal><span class="accent">04 —</span> <span lang="fr">EDUCATION</span><span lang="en">EDUCATION</span></p>
+      <h2 class="section-title" data-reveal><span lang="fr">Parcours académique</span><span lang="en">Academic Background</span></h2>
+
+      <div class="edu-list">
+        <div class="edu-row" data-reveal>
+          <span class="edu-date">2024 — 2026</span>
+          <div>
+            <h3 class="edu-title"><span lang="fr">Master · Marketing Digital Management</span><span lang="en">Master's · Digital Marketing Management</span> <span style="font-weight:400;font-size:0.7em;color:var(--ink-mute);">(<span lang="fr">100 % en anglais</span><span lang="en">100% in English</span>)</span></h3>
+            <p class="edu-org">Rennes School of Business</p>
+          </div>
+          <div class="edu-logo"><div class="ph ph-light"></div></div>
+        </div>
+        <div class="edu-row" data-reveal>
+          <span class="edu-date">2024</span>
+          <div>
+            <h3 class="edu-title"><span lang="fr">Licence · Information et Communication</span><span lang="en">Bachelor's · Information and Communication</span></h3>
+            <p class="edu-org"><span lang="fr">Université Rennes 2</span><span lang="en">Rennes 2 University</span></p>
+          </div>
+          <div class="edu-logo"><div class="ph ph-light"></div></div>
+        </div>
+        <div class="edu-row" data-reveal>
+          <span class="edu-date">2021</span>
+          <div>
+            <h3 class="edu-title"><span lang="fr">Baccalauréat Général</span><span lang="en">French Baccalaureate (General track)</span></h3>
+          </div>
+          <div class="edu-logo"><div class="ph ph-light"></div></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PROJETS -->
-  <section id="projets" class="section section-alt">
+  <section id="projets" class="section section-dark">
     <div class="container">
-      <p class="section-label" data-reveal><span lang="fr">Réalisations</span><span lang="en">Work</span></p>
-      <h2 class="section-title" data-reveal><span lang="fr">Projets</span><span lang="en">Projects</span></h2>
+      <div class="section-head">
+        <div class="section-head-text">
+          <p class="section-label" data-reveal><span class="accent">05 —</span> <span lang="fr">PROJETS</span><span lang="en">PROJECTS</span></p>
+          <h2 class="section-title" data-reveal><span lang="fr">Mes réalisations</span><span lang="en">My Work</span></h2>
+          <p class="projects-hint" data-reveal><span lang="fr">Cliquez sur un projet pour l'ouvrir</span><span lang="en">Click a project to open it</span></p>
+        </div>
+        <div class="carousel-nav" data-reveal>
+          <button class="carousel-btn" data-prev aria-label="Previous">‹</button>
+          <button class="carousel-btn" data-next aria-label="Next">›</button>
+        </div>
+      </div>
 
-      <div class="projects-grid">
+      <div data-carousel>
+        <div class="carousel-track">
 
-        <article class="project-card" data-reveal>
-          <div class="project-tag"><span lang="fr">E-commerce · Réalité Virtuelle</span><span lang="en">E-commerce · Virtual Reality</span></div>
-          <h3>Komete XR</h3>
-          <p><span lang="fr">Calendrier éditorial, contenu SEO (blog, fiches produits, newsletters), identité de marque et conception de sites clients sur Figma.</span><span lang="en">Editorial calendar, SEO content (blog, product pages, newsletters), brand identity and client website design in Figma.</span></p>
-          <a href="https://komete-xr.com" target="_blank" rel="noopener">
-            <span lang="fr">Voir le site ↗</span><span lang="en">Visit site ↗</span>
+          <a class="project-card" href="projects/ux-design.html">
+            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">capture — à ajouter</span><span lang="en">screenshot — to add</span></span></div>
+            <div class="project-meta-row"><h3>UX Design</h3><span class="card-counter">01/07</span></div>
+            <span class="project-tag"><span lang="fr">MAQUETTE FIGMA</span><span lang="en">FIGMA MOCKUP</span></span>
           </a>
-        </article>
 
-        <article class="project-card" data-reveal>
-          <div class="project-tag"><span lang="fr">Site web · SEO</span><span lang="en">Website · SEO</span></div>
-          <h3>Le Champ des Possibles</h3>
-          <p><span lang="fr">Conception, développement et référencement naturel d'un site pour une entreprise indépendante. <strong>+20&nbsp;% de clientèle</strong> après mise en ligne.</span><span lang="en">Design, development and SEO for an independent business's website. <strong>+20% clientele</strong> after launch.</span></p>
-        </article>
+          <a class="project-card" href="projects/identite-gomene.html">
+            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">logo — à ajouter</span><span lang="en">logo — to add</span></span></div>
+            <div class="project-meta-row"><h3><span lang="fr">Graphic Design</span><span lang="en">Graphic Design</span></h3><span class="card-counter">02/07</span></div>
+            <span class="project-tag"><span lang="fr">IDENTITÉ</span><span lang="en">IDENTITY</span></span>
+          </a>
 
-        <article class="project-card" data-reveal>
-          <div class="project-tag"><span lang="fr">Identité de marque</span><span lang="en">Brand identity</span></div>
-          <h3>ADM Plaquiste</h3>
-          <p><span lang="fr">Logo, visuels de marque et supports de communication pour le lancement de l'entreprise.</span><span lang="en">Logo, brand visuals and communication materials for the company's launch.</span></p>
-        </article>
+          <a class="project-card" href="projects/code.html">
+            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">capture — à ajouter</span><span lang="en">screenshot — to add</span></span></div>
+            <div class="project-meta-row"><h3>Code</h3><span class="card-counter">03/07</span></div>
+            <span class="project-tag">PYTHON · HTML</span>
+          </a>
 
-        <article class="project-card" data-reveal>
-          <div class="project-tag"><span lang="fr">Design web · Figma</span><span lang="en">Web design · Figma</span></div>
-          <h3>White Dog · JL Mousse · <span lang="fr">Mairie de Gomené</span><span lang="en">Gomené Town Hall</span></h3>
-          <p><span lang="fr">Conception de maquettes et de sites web pour plusieurs clients, du cahier des charges à la livraison.</span><span lang="en">Website mockups and design for multiple clients, from brief to delivery.</span></p>
-        </article>
+          <a class="project-card" href="projects/magazine.html">
+            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">double page — à ajouter</span><span lang="en">spread — to add</span></span></div>
+            <div class="project-meta-row"><h3>Magazine</h3><span class="card-counter">04/07</span></div>
+            <span class="project-tag">INDESIGN</span>
+          </a>
 
+          <a class="project-card" href="projects/photo.html">
+            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">série photo — à ajouter</span><span lang="en">photo series — to add</span></span></div>
+            <div class="project-meta-row"><h3><span lang="fr">Photo</span><span lang="en">Photo</span></h3><span class="card-counter">05/07</span></div>
+            <span class="project-tag"><span lang="fr">DIRECTION ARTISTIQUE</span><span lang="en">ART DIRECTION</span></span>
+          </a>
+
+          <a class="project-card" href="projects/blog.html">
+            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">article — à ajouter</span><span lang="en">article — to add</span></span></div>
+            <div class="project-meta-row"><h3><span lang="fr">Blog / rédaction</span><span lang="en">Blog / Writing</span></h3><span class="card-counter">06/07</span></div>
+            <span class="project-tag">SEO</span>
+          </a>
+
+          <a class="project-card" href="projects/site-web.html">
+            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">site — à ajouter</span><span lang="en">site — to add</span></span></div>
+            <div class="project-meta-row"><h3><span lang="fr">Création site web</span><span lang="en">Website Creation</span></h3><span class="card-counter">07/07</span></div>
+            <span class="project-tag">WORDPRESS · SHOPIFY</span>
+          </a>
+
+        </div>
+        <div class="carousel-progress"><div class="carousel-progress-bar"></div></div>
       </div>
     </div>
   </section>
 
-  <!-- FORMATION -->
-  <section id="formation" class="section">
+  <!-- FORMATIONS -->
+  <section id="formations" class="section">
     <div class="container">
-      <p class="section-label" data-reveal><span lang="fr">Formation</span><span lang="en">Education</span></p>
-      <h2 class="section-title" data-reveal><span lang="fr">Parcours académique</span><span lang="en">Academic Background</span></h2>
+      <p class="section-label" data-reveal><span class="accent">06 —</span> <span lang="fr">FORMATIONS</span><span lang="en">TRAINING</span></p>
+      <h2 class="section-title" data-reveal><span lang="fr">Certifications &amp; formations</span><span lang="en">Certifications &amp; Training</span></h2>
 
-      <div class="timeline timeline-compact">
-        <article class="timeline-item" data-reveal>
-          <div class="timeline-date">2024 — 2026</div>
-          <div class="timeline-content">
-            <h3><span lang="fr">Master en Marketing Digital</span><span lang="en">Master's in Digital Marketing</span></h3>
-            <p class="timeline-org">Rennes School of Business</p>
+      <div class="formation-list">
+        <div class="formation-row" data-reveal>
+          <h3><span lang="fr">PIX — Compétences numériques</span><span lang="en">PIX — Digital Skills</span></h3>
+          <p><span lang="fr">Maîtrise des outils digitaux, sécurité et création de contenus</span><span lang="en">Mastery of digital tools, security and content creation</span></p>
+        </div>
+        <div class="formation-row" data-reveal>
+          <h3><span lang="fr">Marketing digital &amp; e-commerce</span><span lang="en">Digital Marketing &amp; E-commerce</span></h3>
+          <p><span lang="fr">Stratégies web, campagnes en ligne et gestion e-shop</span><span lang="en">Web strategies, online campaigns and e-shop management</span></p>
+        </div>
+        <div class="formation-row" data-reveal>
+          <h3><span lang="fr">Design — Adobe Illustrator</span><span lang="en">Design — Adobe Illustrator</span></h3>
+          <p><span lang="fr">Création de logos et visuels vectoriels professionnels</span><span lang="en">Creating professional logos and vector visuals</span></p>
+        </div>
+        <div class="formation-row" data-reveal>
+          <h3><span lang="fr">Python — Initiation</span><span lang="en">Python — Introduction</span></h3>
+          <p><span lang="fr">Bases de la programmation et automatisation simple</span><span lang="en">Programming basics and simple automation</span></p>
+        </div>
+        <div class="formation-row" data-reveal>
+          <h3>UI / UX Design</h3>
+          <p><span lang="fr">Conception d'interfaces intuitives et esthétiques</span><span lang="en">Designing intuitive, appealing interfaces</span></p>
+        </div>
+        <div class="formation-row" data-reveal>
+          <h3><span lang="fr">Rédaction d'articles pour le SEO</span><span lang="en">SEO Article Writing</span></h3>
+          <p><span lang="fr">Techniques d'écriture optimisées pour améliorer le classement Google</span><span lang="en">Optimized writing techniques to improve Google ranking</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTILS -->
+  <section id="outils" class="section section-soft">
+    <div class="container">
+      <p class="section-label" data-reveal><span class="accent">07 —</span> <span lang="fr">COMPÉTENCES TECH</span><span lang="en">TECH SKILLS</span></p>
+      <h2 class="section-title" data-reveal><span lang="fr">Outils</span><span lang="en">Tools</span></h2>
+
+      <div class="tools-layout">
+        <div class="tool-badges" data-reveal>
+          <div class="tool-badge">Canva</div>
+          <div class="tool-badge">Affinity</div>
+          <div class="tool-badge">Shopify</div>
+          <div class="tool-badge">WordPress</div>
+          <div class="tool-badge">Python</div>
+          <div class="tool-badge">Notion</div>
+          <div class="tool-badge">Figma</div>
+          <div class="tool-badge">CapCut</div>
+          <div class="tool-badge">Axonaut</div>
+          <div class="tool-badge">Adobe</div>
+          <div class="tool-badge">M365</div>
+          <div class="tool-badge">ChatGPT</div>
+          <div class="tool-badge">Google</div>
+          <div class="tool-badge">Claude</div>
+        </div>
+
+        <div class="tool-groups" data-reveal>
+          <div class="tool-group">
+            <h4><span lang="fr">Suite Adobe</span><span lang="en">Adobe Suite</span></h4>
+            <ul>
+              <li><strong>Photoshop</strong> — <span lang="fr">retouche photo et création visuelle</span><span lang="en">photo editing and visual creation</span></li>
+              <li><strong>Illustrator</strong> — <span lang="fr">conception graphique et logos vectoriels</span><span lang="en">graphic design and vector logos</span></li>
+              <li><strong>InDesign</strong> — <span lang="fr">mise en page professionnelle (magazines, brochures)</span><span lang="en">professional layout (magazines, brochures)</span></li>
+            </ul>
           </div>
-        </article>
-        <article class="timeline-item" data-reveal>
-          <div class="timeline-date">2024</div>
-          <div class="timeline-content">
-            <h3><span lang="fr">Licence en Marketing et Communication</span><span lang="en">Bachelor's in Marketing and Communication</span></h3>
-            <p class="timeline-org"><span lang="fr">Université Rennes 2</span><span lang="en">Rennes 2 University</span></p>
+          <div class="tool-group">
+            <h4><span lang="fr">Création &amp; design</span><span lang="en">Creation &amp; Design</span></h4>
+            <ul>
+              <li><strong>Canva</strong> — <span lang="fr">design rapide et création visuelle</span><span lang="en">quick design and visual creation</span></li>
+              <li><strong>Figma</strong> — <span lang="fr">maquettes et prototypage UI/UX</span><span lang="en">UI/UX mockups and prototyping</span></li>
+              <li><strong>Affinity</strong> — <span lang="fr">retouche et édition vectorielle</span><span lang="en">photo and vector editing</span></li>
+              <li><strong>CapCut</strong> — <span lang="fr">montage vidéo créatif et rapide</span><span lang="en">fast, creative video editing</span></li>
+            </ul>
           </div>
-        </article>
-        <article class="timeline-item" data-reveal>
-          <div class="timeline-date">2021</div>
-          <div class="timeline-content">
-            <h3><span lang="fr">Baccalauréat Général</span><span lang="en">French Baccalaureate (General track)</span></h3>
+          <div class="tool-group">
+            <h4><span lang="fr">Bureautique &amp; web</span><span lang="en">Office &amp; Web</span></h4>
+            <ul>
+              <li><strong>WordPress</strong> — <span lang="fr">gestion et création de sites web</span><span lang="en">website management and creation</span></li>
+              <li><strong>Shopify</strong> — <span lang="fr">gestion de boutiques e-commerce</span><span lang="en">e-commerce store management</span></li>
+              <li><strong>Microsoft 365</strong> — Word, Excel, PowerPoint</li>
+              <li><strong>Google Suite</strong> — Docs, Sheets, Slides</li>
+              <li><strong>Axonaut</strong> — CRM</li>
+            </ul>
           </div>
-        </article>
+          <div class="tool-group">
+            <h4><span lang="fr">Tech &amp; data</span><span lang="en">Tech &amp; Data</span></h4>
+            <ul>
+              <li><strong>Python</strong> — <span lang="fr">bases de la programmation</span><span lang="en">programming basics</span></li>
+              <li><strong>Notion</strong> — <span lang="fr">organisation et gestion de projets collaboratifs</span><span lang="en">organization and collaborative project management</span></li>
+              <li><strong>ChatGPT &amp; Claude</strong> — <span lang="fr">rédaction, brainstorming et optimisation de contenu</span><span lang="en">writing, brainstorming and content optimization</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASSIONS -->
+  <section id="passions" class="section section-soft">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-text">
+          <p class="section-label" data-reveal><span class="accent">08 —</span> <span lang="fr">OCCUPATIONS</span><span lang="en">HOBBIES</span></p>
+          <h2 class="section-title" data-reveal><span lang="fr">Mes passions</span><span lang="en">My Passions</span></h2>
+        </div>
+        <div class="carousel-nav" data-reveal>
+          <button class="carousel-btn" data-prev aria-label="Previous">‹</button>
+          <button class="carousel-btn" data-next aria-label="Next">›</button>
+        </div>
+      </div>
+
+      <div data-carousel>
+        <div class="carousel-track">
+
+          <div class="passion-card">
+            <div class="ph passion-thumb"><span class="ph-caption"><span lang="fr">photo nail art — à ajouter</span><span lang="en">nail art photo — to add</span></span></div>
+            <div class="passion-body">
+              <h3>Nail Art</h3>
+              <span class="ph-tag"></span>
+              <span class="passion-more"><span lang="fr">En découvrir plus</span><span lang="en">Find out more</span></span>
+            </div>
+          </div>
+
+          <div class="passion-card">
+            <div class="ph passion-thumb"><span class="ph-caption"><span lang="fr">photo crochet — à ajouter</span><span lang="en">crochet photo — to add</span></span></div>
+            <div class="passion-body">
+              <h3><span lang="fr">Crochet</span><span lang="en">Crochet</span></h3>
+              <span class="ph-tag"></span>
+              <span class="passion-more"><span lang="fr">En découvrir plus</span><span lang="en">Find out more</span></span>
+            </div>
+          </div>
+
+          <div class="passion-card">
+            <div class="ph passion-thumb"><span class="ph-caption"><span lang="fr">photo lecture — à ajouter</span><span lang="en">reading photo — to add</span></span></div>
+            <div class="passion-body">
+              <h3><span lang="fr">Lecture</span><span lang="en">Reading</span></h3>
+              <span class="ph-tag"></span>
+              <span class="passion-more"><span lang="fr">En découvrir plus</span><span lang="en">Find out more</span></span>
+            </div>
+          </div>
+
+          <div class="passion-card">
+            <div class="ph passion-thumb"><span class="ph-caption"><span lang="fr">photo écriture — à ajouter</span><span lang="en">writing photo — to add</span></span></div>
+            <div class="passion-body">
+              <h3><span lang="fr">Rédaction</span><span lang="en">Writing</span></h3>
+              <span class="ph-tag"></span>
+              <span class="passion-more"><span lang="fr">En découvrir plus</span><span lang="en">Find out more</span></span>
+            </div>
+          </div>
+
+        </div>
+        <div class="carousel-progress"><div class="carousel-progress-bar"></div></div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section section-contact">
-    <div class="container">
-      <p class="section-label" data-reveal><span lang="fr">Contact</span><span lang="en">Contact</span></p>
-      <h2 class="section-title" data-reveal><span lang="fr">Travaillons ensemble</span><span lang="en">Let's work together</span></h2>
-      <p class="section-body" data-reveal>
-        <span lang="fr">Diplômée en septembre 2026, disponible immédiatement pour un poste en CDI. N'hésitez pas à me contacter.</span>
-        <span lang="en">Graduating September 2026, available immediately for a full-time position. Feel free to reach out.</span>
-      </p>
+  <section id="contact" class="section section-dark">
+    <div class="container contact-split">
+      <div>
+        <p class="section-label" data-reveal><span class="accent">09 —</span> <span lang="fr">CONTACT</span><span lang="en">CONTACT</span></p>
+        <h2 class="contact-title" data-reveal>Contact me</h2>
 
-      <div class="contact-grid" data-reveal>
-        <a class="contact-item" href="mailto:mariammdoreuli@rennes-sb.com">
-          <span class="contact-label"><span lang="fr">Email</span><span lang="en">Email</span></span>
-          <span class="contact-value">mariammdoreuli@rennes-sb.com</span>
-        </a>
-        <a class="contact-item" href="tel:+33767881508">
-          <span class="contact-label"><span lang="fr">Téléphone</span><span lang="en">Phone</span></span>
-          <span class="contact-value">07 67 88 15 08</span>
-        </a>
-        <a class="contact-item" href="https://www.linkedin.com/in/profil-mariam-mdoreuli" target="_blank" rel="noopener">
-          <span class="contact-label">LinkedIn</span>
-          <span class="contact-value">/in/profil-mariam-mdoreuli</span>
-        </a>
-        <div class="contact-item contact-item-static">
-          <span class="contact-label"><span lang="fr">Localisation</span><span lang="en">Location</span></span>
-          <span class="contact-value">Rennes, 35000</span>
+        <div class="contact-rows" data-reveal>
+          <div class="contact-row">
+            <span class="contact-row-label">LINKEDIN</span>
+            <a class="contact-row-value" href="https://www.linkedin.com/in/profil-mariam-mdoreuli" target="_blank" rel="noopener">Mariam Mdoreuli</a>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row-label"><span lang="fr">EMAIL</span><span lang="en">EMAIL</span></span>
+            <a class="contact-row-value" href="mailto:mariammdoreuli@gmail.com">mariammdoreuli@gmail.com</a>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row-label"><span lang="fr">TÉLÉPHONE</span><span lang="en">PHONE</span></span>
+            <a class="contact-row-value" href="tel:+33767881508">07 . 67 . 88 . 15 . 08</a>
+          </div>
         </div>
+
+        <div class="hero-cta" data-reveal>
+          <a href="#" class="btn btn-primary"><span lang="fr">Télécharger mon CV (PDF)</span><span lang="en">Download my CV (PDF)</span></a>
+          <a href="mailto:mariammdoreuli@gmail.com" class="btn btn-outline"><span lang="fr">M'écrire un email</span><span lang="en">Send me an email</span></a>
+        </div>
+      </div>
+      <div class="contact-visual" data-reveal>
+        <div class="ph"><span class="ph-caption"><span lang="fr">illustration / avatar — à ajouter</span><span lang="en">illustration / avatar — to add</span></span></div>
       </div>
     </div>
   </section>
@@ -304,8 +613,8 @@
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>© <span id="year"></span> Mariam Mdoreuli</p>
-    <a href="#top" class="back-to-top"><span lang="fr">Haut de page ↑</span><span lang="en">Back to top ↑</span></a>
+    <span>MDOREULI MARIAM — <span lang="fr">PORTFOLIO</span><span lang="en">PORTFOLIO</span> <span id="year"></span></span>
+    <span>RENNES, FRANCE</span>
   </div>
 </footer>
 
