@@ -17,13 +17,12 @@
     setLang("en");
   }
 
-  var langToggle = document.getElementById("lang-toggle");
-  if (langToggle) {
-    langToggle.addEventListener("click", function () {
+  document.querySelectorAll(".lang-toggle").forEach(function (toggle) {
+    toggle.addEventListener("click", function () {
       var current = html.getAttribute("data-lang") === "en" ? "en" : "fr";
       setLang(current === "fr" ? "en" : "fr");
     });
-  }
+  });
 
   var navToggle = document.getElementById("nav-toggle");
   var mainNav = document.getElementById("main-nav");
@@ -56,10 +55,82 @@
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
     revealEls.forEach(function (el) { observer.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  document.querySelectorAll("[data-carousel]").forEach(function (root) {
+    var track = root.querySelector(".carousel-track");
+    var prevBtn = root.querySelector("[data-prev]");
+    var nextBtn = root.querySelector("[data-next]");
+    var progressBar = root.querySelector(".carousel-progress-bar");
+    if (!track) return;
+
+    function cardStep() {
+      var card = track.querySelector(":scope > *");
+      if (!card) return track.clientWidth;
+      var style = getComputedStyle(track);
+      var gap = parseFloat(style.columnGap || style.gap || "0") || 0;
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    function updateProgress() {
+      if (!progressBar) return;
+      var max = track.scrollWidth - track.clientWidth;
+      var ratio = max > 0 ? track.scrollLeft / max : 0;
+      var visibleRatio = Math.min(1, track.clientWidth / track.scrollWidth);
+      var barWidth = Math.max(visibleRatio * 100, 8);
+      var left = ratio * (100 - barWidth);
+      progressBar.style.width = barWidth + "%";
+      progressBar.style.left = left + "%";
+    }
+
+    function updateButtons() {
+      var max = track.scrollWidth - track.clientWidth - 2;
+      if (prevBtn) prevBtn.disabled = track.scrollLeft <= 0;
+      if (nextBtn) nextBtn.disabled = track.scrollLeft >= max;
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", function () {
+      track.scrollBy({ left: -cardStep(), behavior: "smooth" });
+    });
+    if (nextBtn) nextBtn.addEventListener("click", function () {
+      track.scrollBy({ left: cardStep(), behavior: "smooth" });
+    });
+
+    track.addEventListener("scroll", function () {
+      updateProgress();
+      updateButtons();
+    }, { passive: true });
+
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
+    updateButtons();
+  });
+
+  var navLinks = document.querySelectorAll(".main-nav a[href^='#'], .main-nav a[href*='index.html#']");
+  var sections = [];
+  navLinks.forEach(function (link) {
+    var id = link.getAttribute("href").split("#")[1];
+    var section = id && document.getElementById(id);
+    if (section) sections.push({ link: link, section: section });
+  });
+  if (sections.length && "IntersectionObserver" in window) {
+    var navObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          var match = sections.find(function (s) { return s.section === entry.target; });
+          if (match && entry.isIntersecting) {
+            sections.forEach(function (s) { s.link.classList.remove("is-active"); });
+            match.link.classList.add("is-active");
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -50% 0px" }
+    );
+    sections.forEach(function (s) { navObserver.observe(s.section); });
   }
 })();
