@@ -18,11 +18,17 @@
   --on-dark-mute: #766d5f;
 
   --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: var(--font-display);
+  --font-body: var(--font-display);
   --font-mono: "JetBrains Mono", "Courier New", monospace;
 
   --container: 1240px;
   --radius: 10px;
 }
+
+/* Text size scale — set by /admin (theme.font_size) via [data-fontsize] on <html> */
+html[data-fontsize="compact"] { font-size: 93.75%; }
+html[data-fontsize="large"] { font-size: 112.5%; }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -31,10 +37,14 @@ body {
   margin: 0;
   background: var(--cream);
   color: var(--ink);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .contact-title, .quote-text {
+  font-family: var(--font-heading);
 }
 
 img { max-width: 100%; display: block; }
@@ -263,6 +273,17 @@ html[data-lang="en"] .lang-option[data-set-lang="en"] { color: var(--accent); }
 .section-white { background: #fff; }
 .section-dark { background: var(--dark); color: var(--on-dark); }
 .section-soft { background: var(--cream-soft); }
+
+/* ---------- Custom sections (added from /admin) ---------- */
+.custom-section-image { margin-bottom: 32px; }
+.custom-section-image .ph { aspect-ratio: 21 / 9; border-radius: var(--radius); }
+.custom-section-body { max-width: 760px; }
+.custom-section-body p {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  margin: 0 0 16px;
+}
+.section-dark .custom-section-body p { color: var(--on-dark-soft); }
 
 .section-label {
   font-family: var(--font-mono);
