@@ -1,0 +1,162 @@
+{
+  "items": [
+    {
+      "title_fr": "Marketing & Communication",
+      "title_en": "Marketing & Communication",
+      "items": [
+        {
+          "fr": "Stratégie digitale, SEO, content marketing",
+          "en": "Digital strategy, SEO, content marketing"
+        },
+        {
+          "fr": "Gestion des réseaux sociaux & community management",
+          "en": "Social media management & community management"
+        },
+        {
+          "fr": "Campagnes multi-canales et planification éditoriale",
+          "en": "Multi-channel campaigns and editorial planning"
+        },
+        {
+          "fr": "Veille concurrentielle",
+          "en": "Competitive intelligence"
+        }
+      ]
+    },
+    {
+      "title_fr": "Création & Design",
+      "title_en": "Creation & Design",
+      "items": [
+        {
+          "fr": "Conception visuelle sur Canva, Photoshop, Illustrator",
+          "en": "Visual design in Canva, Photoshop, Illustrator"
+        },
+        {
+          "fr": "Identité visuelle et supports de communication",
+          "en": "Visual identity and communication materials"
+        },
+        {
+          "fr": "Web design (WordPress, Shopify)",
+          "en": "Web design (WordPress, Shopify)"
+        },
+        {
+          "fr": "Branding et positionnement de marque",
+          "en": "Branding and brand positioning"
+        }
+      ]
+    },
+    {
+      "title_fr": "Rédaction SEO",
+      "title_en": "SEO Writing",
+      "items": [
+        {
+          "fr": "Articles de blog optimisés",
+          "en": "Optimized blog articles"
+        },
+        {
+          "fr": "Fiches produits et newsletters",
+          "en": "Product pages and newsletters"
+        },
+        {
+          "fr": "Recherche de mots-clés et maillage interne",
+          "en": "Keyword research and internal linking"
+        }
+      ]
+    },
+    {
+      "title_fr": "Développement Web",
+      "title_en": "Web Development",
+      "items": [
+        {
+          "fr": "Création de sites web",
+          "en": "Website creation"
+        },
+        {
+          "fr": "Design web et mise en page",
+          "en": "Web design and layout"
+        },
+        {
+          "fr": "Création de pages produit",
+          "en": "Product page creation"
+        },
+        {
+          "fr": "Notions HTML, certifiée Python",
+          "en": "Basic HTML, Python certified"
+        }
+      ]
+    },
+    {
+      "title_fr": "Stratégie & Prospection",
+      "title_en": "Strategy & Outreach",
+      "items": [
+        {
+          "fr": "Analyse des concurrents et création de persona",
+          "en": "Competitor analysis and persona creation"
+        },
+        {
+          "fr": "Calendrier de publication et campagnes ads",
+          "en": "Publishing calendar and ad campaigns"
+        },
+        {
+          "fr": "Recherche de clientèle, cold call, emailing",
+          "en": "Lead generation, cold calling, emailing"
+        },
+        {
+          "fr": "Réponse aux appels d'offres",
+          "en": "Tender responses"
+        }
+      ]
+    },
+    {
+      "title_fr": "Langues",
+      "title_en": "Languages",
+      "languages": [
+        {
+          "name_fr": "Français",
+          "name_en": "French",
+          "level_fr": "Courant",
+          "level_en": "Fluent"
+        },
+        {
+          "name_fr": "Anglais",
+          "name_en": "English",
+          "level_fr": "Courant",
+          "level_en": "Fluent"
+        },
+        {
+          "name_fr": "Russe",
+          "name_en": "Russian",
+          "level_fr": "Bilingue",
+          "level_en": "Bilingual"
+        },
+        {
+          "name_fr": "Géorgien",
+          "name_en": "Georgian",
+          "level_fr": "Bilingue",
+          "level_en": "Bilingual"
+        }
+      ]
+    },
+    {
+      "title_fr": "Qualités personnelles",
+      "title_en": "Soft Skills",
+      "items": [
+        {
+          "fr": "Communication claire et impactante",
+          "en": "Clear, impactful communication"
+        },
+        {
+          "fr": "Esprit créatif et sens du détail",
+          "en": "Creative mindset and attention to detail"
+        },
+        {
+          "fr": "Adaptabilité et curiosité",
+          "en": "Adaptability and curiosity"
+        },
+        {
+          "fr": "Suivi des performances et reporting",
+          "en": "Performance tracking and reporting"
+        }
+      ]
+    }
+  ]
+}

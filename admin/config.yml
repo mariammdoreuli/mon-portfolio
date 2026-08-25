@@ -1,0 +1,243 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: "fr"
+
+collections:
+  - name: "site"
+    label: "Site (accueil, profil, contact, couleurs)"
+    files:
+      - name: "site"
+        label: "Contenu général"
+        file: "content/site.json"
+        fields:
+          - label: "Photo de couverture (hero)"
+            name: "hero"
+            widget: object
+            fields:
+              - { label: "Bandeau (FR)", name: "eyebrow_fr", widget: "string" }
+              - { label: "Bandeau (EN)", name: "eyebrow_en", widget: "string" }
+              - { label: "Nom affiché", name: "name", widget: "string" }
+              - { label: "Rôle (FR)", name: "role_fr", widget: "string" }
+              - { label: "Rôle (EN)", name: "role_en", widget: "string" }
+              - { label: "Texte d'intro (FR)", name: "lede_fr", widget: "text" }
+              - { label: "Texte d'intro (EN)", name: "lede_en", widget: "text" }
+              - { label: "Bouton principal (FR)", name: "cta_primary_fr", widget: "string" }
+              - { label: "Bouton principal (EN)", name: "cta_primary_en", widget: "string" }
+              - { label: "Bouton secondaire (FR)", name: "cta_secondary_fr", widget: "string" }
+              - { label: "Bouton secondaire (EN)", name: "cta_secondary_en", widget: "string" }
+              - { label: "Localisation", name: "location", widget: "string" }
+              - { label: "Langues (texte court)", name: "languages", widget: "string" }
+              - { label: "Note (FR)", name: "meta_note_fr", widget: "string" }
+              - { label: "Note (EN)", name: "meta_note_en", widget: "string" }
+              - { label: "Photo", name: "image", widget: "image", required: false }
+          - label: "Profil"
+            name: "profil"
+            widget: object
+            fields:
+              - { label: "Texte (FR)", name: "body_fr", widget: "text" }
+              - { label: "Texte (EN)", name: "body_en", widget: "text" }
+              - { label: "Photo", name: "image", widget: "image", required: false }
+              - label: "Chiffres clés"
+                name: "stats"
+                widget: list
+                fields:
+                  - { label: "Chiffre", name: "number", widget: "string" }
+                  - { label: "Légende (FR)", name: "label_fr", widget: "string" }
+                  - { label: "Légende (EN)", name: "label_en", widget: "string" }
+          - label: "Citation"
+            name: "quote"
+            widget: object
+            fields:
+              - { label: "Texte (FR)", name: "text_fr", widget: "text" }
+              - { label: "Texte (EN)", name: "text_en", widget: "text" }
+              - { label: "Légende (FR)", name: "label_fr", widget: "string" }
+              - { label: "Légende (EN)", name: "label_en", widget: "string" }
+          - label: "Contact"
+            name: "contact"
+            widget: object
+            fields:
+              - { label: "LinkedIn — nom affiché", name: "linkedin_label", widget: "string" }
+              - { label: "LinkedIn — lien", name: "linkedin_url", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Téléphone (affiché)", name: "phone_display", widget: "string" }
+              - { label: "Téléphone (lien tel:)", name: "phone_tel", widget: "string" }
+              - { label: "Lien vers le CV (PDF)", name: "cv_url", widget: "file", required: false }
+              - { label: "Illustration", name: "image", widget: "image", required: false }
+          - label: "Pied de page"
+            name: "footer"
+            widget: object
+            fields:
+              - { label: "Nom", name: "name_line", widget: "string" }
+              - { label: "Localisation", name: "location", widget: "string" }
+          - label: "Couleurs du site"
+            name: "theme"
+            widget: object
+            fields:
+              - { label: "Couleur d'accent (ex: #c43d2b)", name: "accent", widget: "string" }
+              - { label: "Couleur fond sombre", name: "dark", widget: "string" }
+              - { label: "Couleur fond clair", name: "cream", widget: "string" }
+
+  - name: "skills"
+    label: "Compétences"
+    files:
+      - name: "skills"
+        label: "Liste des compétences"
+        file: "content/skills.json"
+        fields:
+          - label: "Catégories"
+            name: "items"
+            widget: list
+            fields:
+              - { label: "Titre (FR)", name: "title_fr", widget: "string" }
+              - { label: "Titre (EN)", name: "title_en", widget: "string" }
+              - label: "Points (laisser vide si carte Langues)"
+                name: "items"
+                widget: list
+                required: false
+                fields:
+                  - { label: "FR", name: "fr", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string" }
+              - label: "Langues (uniquement pour la carte Langues)"
+                name: "languages"
+                widget: list
+                required: false
+                fields:
+                  - { label: "Nom (FR)", name: "name_fr", widget: "string" }
+                  - { label: "Nom (EN)", name: "name_en", widget: "string" }
+                  - { label: "Niveau (FR)", name: "level_fr", widget: "string" }
+                  - { label: "Niveau (EN)", name: "level_en", widget: "string" }
+
+  - name: "experiences"
+    label: "Expériences professionnelles"
+    files:
+      - name: "experiences"
+        label: "Liste des expériences"
+        file: "content/experiences.json"
+        fields:
+          - label: "Expériences"
+            name: "items"
+            widget: list
+            fields:
+              - { label: "Dates", name: "date", widget: "string" }
+              - { label: "Titre du poste (FR)", name: "title_fr", widget: "string" }
+              - { label: "Titre du poste (EN)", name: "title_en", widget: "string" }
+              - { label: "Entreprise / contexte (FR)", name: "org_fr", widget: "string" }
+              - { label: "Entreprise / contexte (EN)", name: "org_en", widget: "string" }
+              - label: "Missions"
+                name: "items"
+                widget: list
+                fields:
+                  - { label: "FR", name: "fr", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string" }
+              - { label: "Résultat (FR, optionnel)", name: "result_fr", widget: "string", required: false }
+              - { label: "Résultat (EN, optionnel)", name: "result_en", widget: "string", required: false }
+
+  - name: "education"
+    label: "Formation académique"
+    files:
+      - name: "education"
+        label: "Parcours académique"
+        file: "content/education.json"
+        fields:
+          - label: "Diplômes"
+            name: "items"
+            widget: list
+            fields:
+              - { label: "Dates", name: "date", widget: "string" }
+              - { label: "Diplôme (FR)", name: "title_fr", widget: "string" }
+              - { label: "Diplôme (EN)", name: "title_en", widget: "string" }
+              - { label: "École (si identique FR/EN)", name: "org", widget: "string", required: false }
+              - { label: "École (FR, optionnel)", name: "org_fr", widget: "string", required: false }
+              - { label: "École (EN, optionnel)", name: "org_en", widget: "string", required: false }
+              - { label: "Logo", name: "logo", widget: "image", required: false }
+
+  - name: "projects"
+    label: "Réalisations (projets)"
+    files:
+      - name: "projects"
+        label: "Liste des projets"
+        file: "content/projects.json"
+        fields:
+          - label: "Projets"
+            name: "items"
+            widget: list
+            fields:
+              - { label: "Identifiant unique (slug, sans espace ni accent, ex: mon-projet)", name: "slug", widget: "string" }
+              - { label: "Catégorie (FR)", name: "category_fr", widget: "string" }
+              - { label: "Catégorie (EN)", name: "category_en", widget: "string" }
+              - { label: "Titre (FR)", name: "title_fr", widget: "string" }
+              - { label: "Titre (EN)", name: "title_en", widget: "string" }
+              - { label: "Étiquette courte (FR)", name: "tag_fr", widget: "string" }
+              - { label: "Étiquette courte (EN)", name: "tag_en", widget: "string" }
+              - { label: "Année (FR)", name: "year_fr", widget: "string" }
+              - { label: "Année (EN)", name: "year_en", widget: "string" }
+              - { label: "Rôle (FR)", name: "role_fr", widget: "string" }
+              - { label: "Rôle (EN)", name: "role_en", widget: "string" }
+              - { label: "Outils (FR)", name: "tools_fr", widget: "string" }
+              - { label: "Outils (EN)", name: "tools_en", widget: "string" }
+              - { label: "Accroche (FR)", name: "lede_fr", widget: "text" }
+              - { label: "Accroche (EN)", name: "lede_en", widget: "text" }
+              - { label: "Description complète (FR)", name: "body_fr", widget: "text" }
+              - { label: "Description complète (EN)", name: "body_en", widget: "text" }
+              - { label: "Image du projet", name: "image", widget: "image", required: false }
+
+  - name: "formations"
+    label: "Certifications & formations"
+    files:
+      - name: "formations"
+        label: "Liste des formations"
+        file: "content/formations.json"
+        fields:
+          - label: "Formations"
+            name: "items"
+            widget: list
+            fields:
+              - { label: "Titre (FR)", name: "title_fr", widget: "string" }
+              - { label: "Titre (EN)", name: "title_en", widget: "string" }
+              - { label: "Description (FR)", name: "desc_fr", widget: "string" }
+              - { label: "Description (EN)", name: "desc_en", widget: "string" }
+
+  - name: "tools"
+    label: "Outils"
+    files:
+      - name: "tools"
+        label: "Outils & logiciels"
+        file: "content/tools.json"
+        fields:
+          - label: "Badges (liste simple de noms)"
+            name: "badges"
+            widget: list
+            allow_add: true
+          - label: "Groupes détaillés"
+            name: "groups"
+            widget: list
+            fields:
+              - { label: "Titre du groupe (FR)", name: "title_fr", widget: "string" }
+              - { label: "Titre du groupe (EN)", name: "title_en", widget: "string" }
+              - label: "Outils du groupe"
+                name: "items"
+                widget: list
+                fields:
+                  - { label: "Nom", name: "name", widget: "string" }
+                  - { label: "Description (FR)", name: "desc_fr", widget: "string" }
+                  - { label: "Description (EN)", name: "desc_en", widget: "string" }
+
+  - name: "passions"
+    label: "Passions"
+    files:
+      - name: "passions"
+        label: "Liste des passions"
+        file: "content/passions.json"
+        fields:
+          - label: "Passions"
+            name: "items"
+            widget: list
+            fields:
+              - { label: "Titre (FR)", name: "title_fr", widget: "string" }
+              - { label: "Titre (EN)", name: "title_en", widget: "string" }
+              - { label: "Photo", name: "image", widget: "image", required: false }

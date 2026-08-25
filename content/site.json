@@ -1,0 +1,54 @@
+{
+  "hero": {
+    "eyebrow_fr": "Disponible — Septembre 2026 · Recherche CDI",
+    "eyebrow_en": "Available — September 2026 · Seeking full-time role",
+    "name": "Mdoreuli Mariam",
+    "role_fr": "Management · Communication · Marketing Digital",
+    "role_en": "Management · Communication · Digital Marketing",
+    "lede_fr": "Contenu, branding et sites web pour des marques qui veulent avancer — de la stratégie éditoriale à la mise en ligne.",
+    "lede_en": "Content, branding and websites for brands that want to move forward — from editorial strategy to launch.",
+    "cta_primary_fr": "Voir mes projets",
+    "cta_primary_en": "View my projects",
+    "cta_secondary_fr": "Me contacter",
+    "cta_secondary_en": "Get in touch",
+    "location": "Rennes, France",
+    "languages": "FR · EN · RU · KA",
+    "meta_note_fr": "Master RSB 2026",
+    "meta_note_en": "RSB Master's 2026",
+    "image": ""
+  },
+  "profil": {
+    "body_fr": "Assistante communication et marketing digital, je viens de finaliser un an d'alternance en e-commerce où j'ai piloté la création de contenu, le développement de sites web et la stratégie de marque pour plusieurs clients.\n\nJe recherche aujourd'hui un poste en CDI pour mettre ces compétences au service d'une entreprise ambitieuse.",
+    "body_en": "Communication and digital marketing assistant, I recently completed a year-long work-study program in e-commerce, leading content creation, website development and brand strategy for several clients.\n\nI'm now looking for a full-time position to put these skills to work for an ambitious company.",
+    "image": "",
+    "stats": [
+      { "number": "+20%", "label_fr": "de clientèle après refonte de site", "label_en": "clientele after site redesign" },
+      { "number": "4", "label_fr": "langues parlées", "label_en": "languages spoken" },
+      { "number": "3", "label_fr": "sites clients livrés", "label_en": "client sites delivered" }
+    ]
+  },
+  "quote": {
+    "text_fr": "Une marque se retient par ce qu'elle publie, pas par ce qu'elle promet.",
+    "text_en": "A brand is remembered for what it publishes, not what it promises.",
+    "label_fr": "Ma façon de travailler",
+    "label_en": "How I work"
+  },
+  "contact": {
+    "linkedin_label": "Mariam Mdoreuli",
+    "linkedin_url": "https://www.linkedin.com/in/profil-mariam-mdoreuli",
+    "email": "mariammdoreuli@gmail.com",
+    "phone_display": "07 . 67 . 88 . 15 . 08",
+    "phone_tel": "+33767881508",
+    "cv_url": "#",
+    "image": ""
+  },
+  "footer": {
+    "name_line": "MDOREULI MARIAM",
+    "location": "RENNES, FRANCE"
+  },
+  "theme": {
+    "accent": "#c43d2b",
+    "dark": "#131110",
+    "cream": "#f3ece2"
+  }
+}

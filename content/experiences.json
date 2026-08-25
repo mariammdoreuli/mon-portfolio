@@ -1,0 +1,85 @@
+{
+  "items": [
+    {
+      "date": "2025 — 2026",
+      "title_fr": "Assistante Communication & Marketing Digital",
+      "title_en": "Communication & Digital Marketing Assistant",
+      "org_fr": "Komete — E-commerce (Réalité Virtuelle), Rennes · Stage puis alternance",
+      "org_en": "Komete — E-commerce (Virtual Reality), Rennes · Internship, then work-study",
+      "items": [
+        {
+          "fr": "Pilotage du calendrier éditorial et publication de contenu sur les réseaux sociaux",
+          "en": "Managed the editorial calendar and published content across social media"
+        },
+        {
+          "fr": "Rédaction de contenu SEO : articles de blog, fiches produits et newsletters",
+          "en": "Wrote SEO content: blog articles, product pages and newsletters"
+        },
+        {
+          "fr": "Création graphique et identité de marque : visuels, logos, plaquettes commerciales",
+          "en": "Graphic design and brand identity: visuals, logos, sales brochures"
+        },
+        {
+          "fr": "Conception de sites web pour plusieurs clients (White Dog, JL Mousse, Mairie de Gomené) sur Figma",
+          "en": "Designed websites for several clients (White Dog, JL Mousse, Gomené Town Hall) in Figma"
+        },
+        {
+          "fr": "Prospection commerciale et rédaction de réponses à appels d'offres",
+          "en": "Business development and tender response writing"
+        },
+        {
+          "fr": "Veille concurrentielle, analyse de données et service client",
+          "en": "Competitive intelligence, data analysis and customer service"
+        }
+      ],
+      "result_fr": "",
+      "result_en": ""
+    },
+    {
+      "date": "2024",
+      "title_fr": "Web développeur",
+      "title_en": "Web Developer",
+      "org_fr": "Le Champ des Possibles · Stage, Rennes",
+      "org_en": "Le Champ des Possibles · Internship, Rennes",
+      "items": [
+        {
+          "fr": "Conception et développement du site web",
+          "en": "Website design and development"
+        },
+        {
+          "fr": "Optimisation du référencement naturel",
+          "en": "SEO optimization"
+        },
+        {
+          "fr": "Design graphique et branding digital",
+          "en": "Graphic design and digital branding"
+        }
+      ],
+      "result_fr": "Résultat : +20 % d'augmentation de la clientèle après la mise en ligne du site",
+      "result_en": "Result: +20% increase in clientele after the site went live"
+    },
+    {
+      "date": "2024",
+      "title_fr": "Brand designer",
+      "title_en": "Brand Designer",
+      "org_fr": "ADM Plaquiste · Freelance",
+      "org_en": "ADM Plaquiste · Freelance",
+      "items": [
+        {
+          "fr": "Développement du visuel de la marque",
+          "en": "Developed the brand's visual identity"
+        },
+        {
+          "fr": "Création de logo et supports de communication",
+          "en": "Created logo and communication materials"
+        },
+        {
+          "fr": "Stratégie de positionnement et branding",
+          "en": "Positioning strategy and branding"
+        }
+      ],
+      "result_fr": "Résultat : identité visuelle conçue pour le lancement réussi de l'entreprise",
+      "result_en": "Result: visual identity designed for the company's successful launch"
+    }
+  ]
+}
