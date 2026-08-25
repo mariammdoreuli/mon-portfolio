@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "title_fr": "Nail Art",
+      "title_en": "Nail Art",
+      "image": ""
+    },
+    {
+      "title_fr": "Crochet",
+      "title_en": "Crochet",
+      "image": ""
+    },
+    {
+      "title_fr": "Lecture",
+      "title_en": "Reading",
+      "image": ""
+    },
+    {
+      "title_fr": "Rédaction",
+      "title_en": "Writing",
+      "image": ""
+    }
+  ]
+}

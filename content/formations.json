@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "title_fr": "PIX — Compétences numériques",
+      "title_en": "PIX — Digital Skills",
+      "desc_fr": "Maîtrise des outils digitaux, sécurité et création de contenus",
+      "desc_en": "Mastery of digital tools, security and content creation"
+    },
+    {
+      "title_fr": "Marketing digital & e-commerce",
+      "title_en": "Digital Marketing & E-commerce",
+      "desc_fr": "Stratégies web, campagnes en ligne et gestion e-shop",
+      "desc_en": "Web strategies, online campaigns and e-shop management"
+    },
+    {
+      "title_fr": "Design — Adobe Illustrator",
+      "title_en": "Design — Adobe Illustrator",
+      "desc_fr": "Création de logos et visuels vectoriels professionnels",
+      "desc_en": "Creating professional logos and vector visuals"
+    },
+    {
+      "title_fr": "Python — Initiation",
+      "title_en": "Python — Introduction",
+      "desc_fr": "Bases de la programmation et automatisation simple",
+      "desc_en": "Programming basics and simple automation"
+    },
+    {
+      "title_fr": "UI / UX Design",
+      "title_en": "UI / UX Design",
+      "desc_fr": "Conception d'interfaces intuitives et esthétiques",
+      "desc_en": "Designing intuitive, appealing interfaces"
+    },
+    {
+      "title_fr": "Rédaction d'articles pour le SEO",
+      "title_en": "SEO Article Writing",
+      "desc_fr": "Techniques d'écriture optimisées pour améliorer le classement Google",
+      "desc_en": "Optimized writing techniques to improve Google ranking"
+    }
+  ]
+}

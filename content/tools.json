@@ -1,0 +1,44 @@
+{
+  "badges": ["Canva", "Affinity", "Shopify", "WordPress", "Python", "Notion", "Figma", "CapCut", "Axonaut", "Adobe", "M365", "ChatGPT", "Google", "Claude"],
+  "groups": [
+    {
+      "title_fr": "Suite Adobe",
+      "title_en": "Adobe Suite",
+      "items": [
+        { "name": "Photoshop", "desc_fr": "retouche photo et création visuelle", "desc_en": "photo editing and visual creation" },
+        { "name": "Illustrator", "desc_fr": "conception graphique et logos vectoriels", "desc_en": "graphic design and vector logos" },
+        { "name": "InDesign", "desc_fr": "mise en page professionnelle (magazines, brochures)", "desc_en": "professional layout (magazines, brochures)" }
+      ]
+    },
+    {
+      "title_fr": "Création & design",
+      "title_en": "Creation & Design",
+      "items": [
+        { "name": "Canva", "desc_fr": "design rapide et création visuelle", "desc_en": "quick design and visual creation" },
+        { "name": "Figma", "desc_fr": "maquettes et prototypage UI/UX", "desc_en": "UI/UX mockups and prototyping" },
+        { "name": "Affinity", "desc_fr": "retouche et édition vectorielle", "desc_en": "photo and vector editing" },
+        { "name": "CapCut", "desc_fr": "montage vidéo créatif et rapide", "desc_en": "fast, creative video editing" }
+      ]
+    },
+    {
+      "title_fr": "Bureautique & web",
+      "title_en": "Office & Web",
+      "items": [
+        { "name": "WordPress", "desc_fr": "gestion et création de sites web", "desc_en": "website management and creation" },
+        { "name": "Shopify", "desc_fr": "gestion de boutiques e-commerce", "desc_en": "e-commerce store management" },
+        { "name": "Microsoft 365", "desc_fr": "Word, Excel, PowerPoint", "desc_en": "Word, Excel, PowerPoint" },
+        { "name": "Google Suite", "desc_fr": "Docs, Sheets, Slides", "desc_en": "Docs, Sheets, Slides" },
+        { "name": "Axonaut", "desc_fr": "CRM", "desc_en": "CRM" }
+      ]
+    },
+    {
+      "title_fr": "Tech & data",
+      "title_en": "Tech & Data",
+      "items": [
+        { "name": "Python", "desc_fr": "bases de la programmation", "desc_en": "programming basics" },
+        { "name": "Notion", "desc_fr": "organisation et gestion de projets collaboratifs", "desc_en": "organization and collaborative project management" },
+        { "name": "ChatGPT & Claude", "desc_fr": "rédaction, brainstorming et optimisation de contenu", "desc_en": "writing, brainstorming and content optimization" }
+      ]
+    }
+  ]
+}

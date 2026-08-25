@@ -36,7 +36,7 @@
         <span class="lang-sep">/</span>
         <span class="lang-option" data-set-lang="en">EN</span>
       </button>
-      <a href="#" class="btn-cv"><span lang="fr">Télécharger mon CV (PDF)</span><span lang="en">Download my CV (PDF)</span></a>
+      <a href="#" id="cv-link" class="btn-cv"><span lang="fr">Télécharger mon CV (PDF)</span><span lang="en">Download my CV (PDF)</span></a>
       <a href="#contact" class="btn-contact-pill"><span lang="fr">Contact</span><span lang="en">Contact</span></a>
       <button id="nav-toggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" type="button">
         <span></span><span></span><span></span>
@@ -50,70 +50,21 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-inner">
-      <div class="hero-text">
-        <p class="hero-eyebrow" data-reveal>
-          <span lang="fr">Disponible — Septembre 2026 · Recherche CDI</span>
-          <span lang="en">Available — September 2026 · Seeking full-time role</span>
-        </p>
-        <h1 data-reveal>Mdoreuli<br>Mariam</h1>
-        <p class="hero-role" data-reveal>
-          <span lang="fr">Management · Communication · Marketing Digital</span>
-          <span lang="en">Management · Communication · Digital Marketing</span>
-        </p>
-        <p class="hero-lede" data-reveal>
-          <span lang="fr">Contenu, branding et sites web pour des marques qui veulent avancer — de la stratégie éditoriale à la mise en ligne.</span>
-          <span lang="en">Content, branding and websites for brands that want to move forward — from editorial strategy to launch.</span>
-        </p>
-        <div class="hero-cta" data-reveal>
-          <a href="#projets" class="btn btn-primary"><span lang="fr">Voir mes projets</span><span lang="en">View my projects</span></a>
-          <a href="#contact" class="btn btn-outline"><span lang="fr">Me contacter</span><span lang="en">Get in touch</span></a>
-        </div>
-        <ul class="hero-meta" data-reveal>
-          <li>Rennes, France</li>
-          <li>FR · EN · RU · KA</li>
-          <li><span lang="fr">Master RSB 2026</span><span lang="en">RSB Master's 2026</span></li>
-        </ul>
+      <div class="hero-text" id="hero-text">
+        <p class="hero-eyebrow" data-reveal>…</p>
       </div>
-      <div class="hero-visual">
-        <div class="ph">
-          <span class="ph-caption"><span lang="fr">portrait plein cadre — à ajouter</span><span lang="en">full-frame portrait — to add</span></span>
-        </div>
-      </div>
+      <div class="hero-visual" id="hero-visual"></div>
     </div>
   </section>
 
   <!-- PROFIL -->
   <section id="profil" class="section">
     <div class="container split">
-      <div class="split-body">
+      <div class="split-body" id="profil-body">
         <p class="section-label" data-reveal><span class="accent">01 —</span> <span lang="fr">PROFIL</span><span lang="en">ABOUT</span></p>
         <h2 class="section-title" data-reveal><span lang="fr">Qui suis-je ?</span><span lang="en">Who am I?</span></h2>
-        <p data-reveal>
-          <span lang="fr">Assistante communication et marketing digital, je viens de finaliser un an d'alternance en e-commerce où j'ai piloté la création de contenu, le développement de sites web et la stratégie de marque pour plusieurs clients.</span>
-          <span lang="en">Communication and digital marketing assistant, I recently completed a year-long work-study program in e-commerce, leading content creation, website development and brand strategy for several clients.</span>
-        </p>
-        <p data-reveal>
-          <span lang="fr">Je recherche aujourd'hui un poste en CDI pour mettre ces compétences au service d'une entreprise ambitieuse.</span>
-          <span lang="en">I'm now looking for a full-time position to put these skills to work for an ambitious company.</span>
-        </p>
-        <div class="stat-row" data-reveal>
-          <div>
-            <div class="stat-num">+20%</div>
-            <div class="stat-label"><span lang="fr">de clientèle après refonte de site</span><span lang="en">clientele after site redesign</span></div>
-          </div>
-          <div>
-            <div class="stat-num">4</div>
-            <div class="stat-label"><span lang="fr">langues parlées</span><span lang="en">languages spoken</span></div>
-          </div>
-          <div>
-            <div class="stat-num">3</div>
-            <div class="stat-label"><span lang="fr">sites clients livrés</span><span lang="en">client sites delivered</span></div>
-          </div>
-        </div>
       </div>
-      <div class="split-visual" data-reveal>
-        <div class="ph"><span class="ph-caption"><span lang="fr">photo portrait — à ajouter</span><span lang="en">portrait photo — to add</span></span></div>
-      </div>
+      <div class="split-visual" id="profil-visual" data-reveal></div>
     </div>
   </section>
 
@@ -132,99 +83,7 @@
       </div>
 
       <div data-carousel>
-        <div class="carousel-track">
-
-          <div class="skill-card">
-            <div class="card-top-row">
-              <span class="card-eyebrow"><span lang="fr">MARKETING &amp; COMMUNICATION</span><span lang="en">MARKETING &amp; COMMUNICATION</span></span>
-              <span class="card-counter">01/07</span>
-            </div>
-            <ul>
-              <li><span lang="fr">Stratégie digitale, SEO, content marketing</span><span lang="en">Digital strategy, SEO, content marketing</span></li>
-              <li><span lang="fr">Gestion des réseaux sociaux &amp; community management</span><span lang="en">Social media management &amp; community management</span></li>
-              <li><span lang="fr">Campagnes multi-canales et planification éditoriale</span><span lang="en">Multi-channel campaigns and editorial planning</span></li>
-              <li><span lang="fr">Veille concurrentielle</span><span lang="en">Competitive intelligence</span></li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <div class="card-top-row">
-              <span class="card-eyebrow"><span lang="fr">CRÉATION &amp; DESIGN</span><span lang="en">CREATION &amp; DESIGN</span></span>
-              <span class="card-counter">02/07</span>
-            </div>
-            <ul>
-              <li><span lang="fr">Conception visuelle sur Canva, Photoshop, Illustrator</span><span lang="en">Visual design in Canva, Photoshop, Illustrator</span></li>
-              <li><span lang="fr">Identité visuelle et supports de communication</span><span lang="en">Visual identity and communication materials</span></li>
-              <li><span lang="fr">Web design (WordPress, Shopify)</span><span lang="en">Web design (WordPress, Shopify)</span></li>
-              <li><span lang="fr">Branding et positionnement de marque</span><span lang="en">Branding and brand positioning</span></li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <div class="card-top-row">
-              <span class="card-eyebrow"><span lang="fr">RÉDACTION SEO</span><span lang="en">SEO WRITING</span></span>
-              <span class="card-counter">03/07</span>
-            </div>
-            <ul>
-              <li><span lang="fr">Articles de blog optimisés</span><span lang="en">Optimized blog articles</span></li>
-              <li><span lang="fr">Fiches produits et newsletters</span><span lang="en">Product pages and newsletters</span></li>
-              <li><span lang="fr">Recherche de mots-clés et maillage interne</span><span lang="en">Keyword research and internal linking</span></li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <div class="card-top-row">
-              <span class="card-eyebrow"><span lang="fr">DÉVELOPPEMENT WEB</span><span lang="en">WEB DEVELOPMENT</span></span>
-              <span class="card-counter">04/07</span>
-            </div>
-            <ul>
-              <li><span lang="fr">Création de sites web</span><span lang="en">Website creation</span></li>
-              <li><span lang="fr">Design web et mise en page</span><span lang="en">Web design and layout</span></li>
-              <li><span lang="fr">Création de pages produit</span><span lang="en">Product page creation</span></li>
-              <li><span lang="fr">Notions HTML, certifiée Python</span><span lang="en">Basic HTML, Python certified</span></li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <div class="card-top-row">
-              <span class="card-eyebrow"><span lang="fr">STRATÉGIE &amp; PROSPECTION</span><span lang="en">STRATEGY &amp; OUTREACH</span></span>
-              <span class="card-counter">05/07</span>
-            </div>
-            <ul>
-              <li><span lang="fr">Analyse des concurrents et création de persona</span><span lang="en">Competitor analysis and persona creation</span></li>
-              <li><span lang="fr">Calendrier de publication et campagnes ads</span><span lang="en">Publishing calendar and ad campaigns</span></li>
-              <li><span lang="fr">Recherche de clientèle, cold call, emailing</span><span lang="en">Lead generation, cold calling, emailing</span></li>
-              <li><span lang="fr">Réponse aux appels d'offres</span><span lang="en">Tender responses</span></li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <div class="card-top-row">
-              <span class="card-eyebrow"><span lang="fr">LANGUES</span><span lang="en">LANGUAGES</span></span>
-              <span class="card-counter">06/07</span>
-            </div>
-            <div class="lang-grid">
-              <div class="lang-row"><strong><span lang="fr">Français</span><span lang="en">French</span></strong><em><span lang="fr">Courant</span><span lang="en">Fluent</span></em></div>
-              <div class="lang-row"><strong><span lang="fr">Anglais</span><span lang="en">English</span></strong><em><span lang="fr">Courant</span><span lang="en">Fluent</span></em></div>
-              <div class="lang-row"><strong><span lang="fr">Russe</span><span lang="en">Russian</span></strong><em><span lang="fr">Bilingue</span><span lang="en">Bilingual</span></em></div>
-              <div class="lang-row"><strong><span lang="fr">Géorgien</span><span lang="en">Georgian</span></strong><em><span lang="fr">Bilingue</span><span lang="en">Bilingual</span></em></div>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <div class="card-top-row">
-              <span class="card-eyebrow"><span lang="fr">QUALITÉS PERSONNELLES</span><span lang="en">SOFT SKILLS</span></span>
-              <span class="card-counter">07/07</span>
-            </div>
-            <ul>
-              <li><span lang="fr">Communication claire et impactante</span><span lang="en">Clear, impactful communication</span></li>
-              <li><span lang="fr">Esprit créatif et sens du détail</span><span lang="en">Creative mindset and attention to detail</span></li>
-              <li><span lang="fr">Adaptabilité et curiosité</span><span lang="en">Adaptability and curiosity</span></li>
-              <li><span lang="fr">Suivi des performances et reporting</span><span lang="en">Performance tracking and reporting</span></li>
-            </ul>
-          </div>
-
-        </div>
+        <div class="carousel-track" id="skills-track"></div>
         <div class="carousel-progress"><div class="carousel-progress-bar"></div></div>
       </div>
     </div>
@@ -245,109 +104,21 @@
       </div>
 
       <div data-carousel>
-        <div class="carousel-track">
-
-          <article class="exp-card">
-            <div class="card-top-row">
-              <span class="exp-date">2025 — 2026</span>
-              <span class="card-counter">01/03</span>
-            </div>
-            <h3><span lang="fr">Assistante Communication &amp; Marketing Digital</span><span lang="en">Communication &amp; Digital Marketing Assistant</span></h3>
-            <p class="exp-org">Komete — <span lang="fr">E-commerce (Réalité Virtuelle), Rennes · Stage puis alternance</span><span lang="en">E-commerce (Virtual Reality), Rennes · Internship, then work-study</span></p>
-            <ul>
-              <li><span lang="fr">Pilotage du calendrier éditorial et publication de contenu sur les réseaux sociaux</span><span lang="en">Managed the editorial calendar and published content across social media</span></li>
-              <li><span lang="fr">Rédaction de contenu SEO : articles de blog, fiches produits et newsletters</span><span lang="en">Wrote SEO content: blog articles, product pages and newsletters</span></li>
-              <li><span lang="fr">Création graphique et identité de marque : visuels, logos, plaquettes commerciales</span><span lang="en">Graphic design and brand identity: visuals, logos, sales brochures</span></li>
-              <li><span lang="fr">Conception de sites web pour plusieurs clients (White Dog, JL Mousse, Mairie de Gomené) sur Figma</span><span lang="en">Designed websites for several clients (White Dog, JL Mousse, Gomené Town Hall) in Figma</span></li>
-              <li><span lang="fr">Prospection commerciale et rédaction de réponses à appels d'offres</span><span lang="en">Business development and tender response writing</span></li>
-              <li><span lang="fr">Veille concurrentielle, analyse de données et service client</span><span lang="en">Competitive intelligence, data analysis and customer service</span></li>
-            </ul>
-          </article>
-
-          <article class="exp-card">
-            <div class="card-top-row">
-              <span class="exp-date">2024</span>
-              <span class="card-counter">02/03</span>
-            </div>
-            <h3><span lang="fr">Web développeur</span><span lang="en">Web Developer</span></h3>
-            <p class="exp-org">Le Champ des Possibles · <span lang="fr">Stage, Rennes</span><span lang="en">Internship, Rennes</span></p>
-            <ul>
-              <li><span lang="fr">Conception et développement du site web</span><span lang="en">Website design and development</span></li>
-              <li><span lang="fr">Optimisation du référencement naturel</span><span lang="en">SEO optimization</span></li>
-              <li><span lang="fr">Design graphique et branding digital</span><span lang="en">Graphic design and digital branding</span></li>
-            </ul>
-            <p class="exp-result">
-              <span lang="fr">Résultat : +20 % d'augmentation de la clientèle après la mise en ligne du site</span>
-              <span lang="en">Result: +20% increase in clientele after the site went live</span>
-            </p>
-          </article>
-
-          <article class="exp-card">
-            <div class="card-top-row">
-              <span class="exp-date">2024</span>
-              <span class="card-counter">03/03</span>
-            </div>
-            <h3><span lang="fr">Brand designer</span><span lang="en">Brand Designer</span></h3>
-            <p class="exp-org">ADM Plaquiste · <span lang="fr">Freelance</span><span lang="en">Freelance</span></p>
-            <ul>
-              <li><span lang="fr">Développement du visuel de la marque</span><span lang="en">Developed the brand's visual identity</span></li>
-              <li><span lang="fr">Création de logo et supports de communication</span><span lang="en">Created logo and communication materials</span></li>
-              <li><span lang="fr">Stratégie de positionnement et branding</span><span lang="en">Positioning strategy and branding</span></li>
-            </ul>
-            <p class="exp-result">
-              <span lang="fr">Résultat : identité visuelle conçue pour le lancement réussi de l'entreprise</span>
-              <span lang="en">Result: visual identity designed for the company's successful launch</span>
-            </p>
-          </article>
-
-        </div>
+        <div class="carousel-track" id="experiences-track"></div>
         <div class="carousel-progress"><div class="carousel-progress-bar"></div></div>
       </div>
     </div>
   </section>
 
   <!-- QUOTE -->
-  <section class="section section-dark quote-section">
-    <div class="container">
-      <p class="quote-text" data-reveal>
-        <span lang="fr">Une marque se retient par <strong>ce qu'elle publie</strong>, pas par ce qu'elle promet.</span>
-        <span lang="en">A brand is remembered for <strong>what it publishes</strong>, not what it promises.</span>
-      </p>
-      <p class="quote-label" data-reveal><span lang="fr">Ma façon de travailler</span><span lang="en">How I work</span></p>
-    </div>
-  </section>
+  <section class="section section-dark quote-section" id="quote-section"></section>
 
   <!-- EDUCATION -->
   <section id="education" class="section">
     <div class="container">
       <p class="section-label" data-reveal><span class="accent">04 —</span> <span lang="fr">EDUCATION</span><span lang="en">EDUCATION</span></p>
       <h2 class="section-title" data-reveal><span lang="fr">Parcours académique</span><span lang="en">Academic Background</span></h2>
-
-      <div class="edu-list">
-        <div class="edu-row" data-reveal>
-          <span class="edu-date">2024 — 2026</span>
-          <div>
-            <h3 class="edu-title"><span lang="fr">Master · Marketing Digital Management</span><span lang="en">Master's · Digital Marketing Management</span> <span style="font-weight:400;font-size:0.7em;color:var(--ink-mute);">(<span lang="fr">100 % en anglais</span><span lang="en">100% in English</span>)</span></h3>
-            <p class="edu-org">Rennes School of Business</p>
-          </div>
-          <div class="edu-logo"><div class="ph ph-light"></div></div>
-        </div>
-        <div class="edu-row" data-reveal>
-          <span class="edu-date">2024</span>
-          <div>
-            <h3 class="edu-title"><span lang="fr">Licence · Information et Communication</span><span lang="en">Bachelor's · Information and Communication</span></h3>
-            <p class="edu-org"><span lang="fr">Université Rennes 2</span><span lang="en">Rennes 2 University</span></p>
-          </div>
-          <div class="edu-logo"><div class="ph ph-light"></div></div>
-        </div>
-        <div class="edu-row" data-reveal>
-          <span class="edu-date">2021</span>
-          <div>
-            <h3 class="edu-title"><span lang="fr">Baccalauréat Général</span><span lang="en">French Baccalaureate (General track)</span></h3>
-          </div>
-          <div class="edu-logo"><div class="ph ph-light"></div></div>
-        </div>
-      </div>
+      <div class="edu-list" id="education-list"></div>
     </div>
   </section>
 
@@ -367,51 +138,7 @@
       </div>
 
       <div data-carousel>
-        <div class="carousel-track">
-
-          <a class="project-card" href="projects/ux-design.html">
-            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">capture — à ajouter</span><span lang="en">screenshot — to add</span></span></div>
-            <div class="project-meta-row"><h3>UX Design</h3><span class="card-counter">01/07</span></div>
-            <span class="project-tag"><span lang="fr">MAQUETTE FIGMA</span><span lang="en">FIGMA MOCKUP</span></span>
-          </a>
-
-          <a class="project-card" href="projects/identite-gomene.html">
-            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">logo — à ajouter</span><span lang="en">logo — to add</span></span></div>
-            <div class="project-meta-row"><h3><span lang="fr">Graphic Design</span><span lang="en">Graphic Design</span></h3><span class="card-counter">02/07</span></div>
-            <span class="project-tag"><span lang="fr">IDENTITÉ</span><span lang="en">IDENTITY</span></span>
-          </a>
-
-          <a class="project-card" href="projects/code.html">
-            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">capture — à ajouter</span><span lang="en">screenshot — to add</span></span></div>
-            <div class="project-meta-row"><h3>Code</h3><span class="card-counter">03/07</span></div>
-            <span class="project-tag">PYTHON · HTML</span>
-          </a>
-
-          <a class="project-card" href="projects/magazine.html">
-            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">double page — à ajouter</span><span lang="en">spread — to add</span></span></div>
-            <div class="project-meta-row"><h3>Magazine</h3><span class="card-counter">04/07</span></div>
-            <span class="project-tag">INDESIGN</span>
-          </a>
-
-          <a class="project-card" href="projects/photo.html">
-            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">série photo — à ajouter</span><span lang="en">photo series — to add</span></span></div>
-            <div class="project-meta-row"><h3><span lang="fr">Photo</span><span lang="en">Photo</span></h3><span class="card-counter">05/07</span></div>
-            <span class="project-tag"><span lang="fr">DIRECTION ARTISTIQUE</span><span lang="en">ART DIRECTION</span></span>
-          </a>
-
-          <a class="project-card" href="projects/blog.html">
-            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">article — à ajouter</span><span lang="en">article — to add</span></span></div>
-            <div class="project-meta-row"><h3><span lang="fr">Blog / rédaction</span><span lang="en">Blog / Writing</span></h3><span class="card-counter">06/07</span></div>
-            <span class="project-tag">SEO</span>
-          </a>
-
-          <a class="project-card" href="projects/site-web.html">
-            <div class="ph project-thumb"><span class="ph-caption"><span lang="fr">site — à ajouter</span><span lang="en">site — to add</span></span></div>
-            <div class="project-meta-row"><h3><span lang="fr">Création site web</span><span lang="en">Website Creation</span></h3><span class="card-counter">07/07</span></div>
-            <span class="project-tag">WORDPRESS · SHOPIFY</span>
-          </a>
-
-        </div>
+        <div class="carousel-track" id="projects-track"></div>
         <div class="carousel-progress"><div class="carousel-progress-bar"></div></div>
       </div>
     </div>
@@ -422,33 +149,7 @@
     <div class="container">
       <p class="section-label" data-reveal><span class="accent">06 —</span> <span lang="fr">FORMATIONS</span><span lang="en">TRAINING</span></p>
       <h2 class="section-title" data-reveal><span lang="fr">Certifications &amp; formations</span><span lang="en">Certifications &amp; Training</span></h2>
-
-      <div class="formation-list">
-        <div class="formation-row" data-reveal>
-          <h3><span lang="fr">PIX — Compétences numériques</span><span lang="en">PIX — Digital Skills</span></h3>
-          <p><span lang="fr">Maîtrise des outils digitaux, sécurité et création de contenus</span><span lang="en">Mastery of digital tools, security and content creation</span></p>
-        </div>
-        <div class="formation-row" data-reveal>
-          <h3><span lang="fr">Marketing digital &amp; e-commerce</span><span lang="en">Digital Marketing &amp; E-commerce</span></h3>
-          <p><span lang="fr">Stratégies web, campagnes en ligne et gestion e-shop</span><span lang="en">Web strategies, online campaigns and e-shop management</span></p>
-        </div>
-        <div class="formation-row" data-reveal>
-          <h3><span lang="fr">Design — Adobe Illustrator</span><span lang="en">Design — Adobe Illustrator</span></h3>
-          <p><span lang="fr">Création de logos et visuels vectoriels professionnels</span><span lang="en">Creating professional logos and vector visuals</span></p>
-        </div>
-        <div class="formation-row" data-reveal>
-          <h3><span lang="fr">Python — Initiation</span><span lang="en">Python — Introduction</span></h3>
-          <p><span lang="fr">Bases de la programmation et automatisation simple</span><span lang="en">Programming basics and simple automation</span></p>
-        </div>
-        <div class="formation-row" data-reveal>
-          <h3>UI / UX Design</h3>
-          <p><span lang="fr">Conception d'interfaces intuitives et esthétiques</span><span lang="en">Designing intuitive, appealing interfaces</span></p>
-        </div>
-        <div class="formation-row" data-reveal>
-          <h3><span lang="fr">Rédaction d'articles pour le SEO</span><span lang="en">SEO Article Writing</span></h3>
-          <p><span lang="fr">Techniques d'écriture optimisées pour améliorer le classement Google</span><span lang="en">Optimized writing techniques to improve Google ranking</span></p>
-        </div>
-      </div>
+      <div class="formation-list" id="formations-list"></div>
     </div>
   </section>
 
@@ -459,60 +160,8 @@
       <h2 class="section-title" data-reveal><span lang="fr">Outils</span><span lang="en">Tools</span></h2>
 
       <div class="tools-layout">
-        <div class="tool-badges" data-reveal>
-          <div class="tool-badge">Canva</div>
-          <div class="tool-badge">Affinity</div>
-          <div class="tool-badge">Shopify</div>
-          <div class="tool-badge">WordPress</div>
-          <div class="tool-badge">Python</div>
-          <div class="tool-badge">Notion</div>
-          <div class="tool-badge">Figma</div>
-          <div class="tool-badge">CapCut</div>
-          <div class="tool-badge">Axonaut</div>
-          <div class="tool-badge">Adobe</div>
-          <div class="tool-badge">M365</div>
-          <div class="tool-badge">ChatGPT</div>
-          <div class="tool-badge">Google</div>
-          <div class="tool-badge">Claude</div>
-        </div>
-
-        <div class="tool-groups" data-reveal>
-          <div class="tool-group">
-            <h4><span lang="fr">Suite Adobe</span><span lang="en">Adobe Suite</span></h4>
-            <ul>
-              <li><strong>Photoshop</strong> — <span lang="fr">retouche photo et création visuelle</span><span lang="en">photo editing and visual creation</span></li>
-              <li><strong>Illustrator</strong> — <span lang="fr">conception graphique et logos vectoriels</span><span lang="en">graphic design and vector logos</span></li>
-              <li><strong>InDesign</strong> — <span lang="fr">mise en page professionnelle (magazines, brochures)</span><span lang="en">professional layout (magazines, brochures)</span></li>
-            </ul>
-          </div>
-          <div class="tool-group">
-            <h4><span lang="fr">Création &amp; design</span><span lang="en">Creation &amp; Design</span></h4>
-            <ul>
-              <li><strong>Canva</strong> — <span lang="fr">design rapide et création visuelle</span><span lang="en">quick design and visual creation</span></li>
-              <li><strong>Figma</strong> — <span lang="fr">maquettes et prototypage UI/UX</span><span lang="en">UI/UX mockups and prototyping</span></li>
-              <li><strong>Affinity</strong> — <span lang="fr">retouche et édition vectorielle</span><span lang="en">photo and vector editing</span></li>
-              <li><strong>CapCut</strong> — <span lang="fr">montage vidéo créatif et rapide</span><span lang="en">fast, creative video editing</span></li>
-            </ul>
-          </div>
-          <div class="tool-group">
-            <h4><span lang="fr">Bureautique &amp; web</span><span lang="en">Office &amp; Web</span></h4>
-            <ul>
-              <li><strong>WordPress</strong> — <span lang="fr">gestion et création de sites web</span><span lang="en">website management and creation</span></li>
-              <li><strong>Shopify</strong> — <span lang="fr">gestion de boutiques e-commerce</span><span lang="en">e-commerce store management</span></li>
-              <li><strong>Microsoft 365</strong> — Word, Excel, PowerPoint</li>
-              <li><strong>Google Suite</strong> — Docs, Sheets, Slides</li>
-              <li><strong>Axonaut</strong> — CRM</li>
-            </ul>
-          </div>
-          <div class="tool-group">
-            <h4><span lang="fr">Tech &amp; data</span><span lang="en">Tech &amp; Data</span></h4>
-            <ul>
-              <li><strong>Python</strong> — <span lang="fr">bases de la programmation</span><span lang="en">programming basics</span></li>
-              <li><strong>Notion</strong> — <span lang="fr">organisation et gestion de projets collaboratifs</span><span lang="en">organization and collaborative project management</span></li>
-              <li><strong>ChatGPT &amp; Claude</strong> — <span lang="fr">rédaction, brainstorming et optimisation de contenu</span><span lang="en">writing, brainstorming and content optimization</span></li>
-            </ul>
-          </div>
-        </div>
+        <div class="tool-badges" id="tool-badges" data-reveal></div>
+        <div class="tool-groups" id="tool-groups" data-reveal></div>
       </div>
     </div>
   </section>
@@ -532,45 +181,7 @@
       </div>
 
       <div data-carousel>
-        <div class="carousel-track">
-
-          <div class="passion-card">
-            <div class="ph passion-thumb"><span class="ph-caption"><span lang="fr">photo nail art — à ajouter</span><span lang="en">nail art photo — to add</span></span></div>
-            <div class="passion-body">
-              <h3>Nail Art</h3>
-              <span class="ph-tag"></span>
-              <span class="passion-more"><span lang="fr">En découvrir plus</span><span lang="en">Find out more</span></span>
-            </div>
-          </div>
-
-          <div class="passion-card">
-            <div class="ph passion-thumb"><span class="ph-caption"><span lang="fr">photo crochet — à ajouter</span><span lang="en">crochet photo — to add</span></span></div>
-            <div class="passion-body">
-              <h3><span lang="fr">Crochet</span><span lang="en">Crochet</span></h3>
-              <span class="ph-tag"></span>
-              <span class="passion-more"><span lang="fr">En découvrir plus</span><span lang="en">Find out more</span></span>
-            </div>
-          </div>
-
-          <div class="passion-card">
-            <div class="ph passion-thumb"><span class="ph-caption"><span lang="fr">photo lecture — à ajouter</span><span lang="en">reading photo — to add</span></span></div>
-            <div class="passion-body">
-              <h3><span lang="fr">Lecture</span><span lang="en">Reading</span></h3>
-              <span class="ph-tag"></span>
-              <span class="passion-more"><span lang="fr">En découvrir plus</span><span lang="en">Find out more</span></span>
-            </div>
-          </div>
-
-          <div class="passion-card">
-            <div class="ph passion-thumb"><span class="ph-caption"><span lang="fr">photo écriture — à ajouter</span><span lang="en">writing photo — to add</span></span></div>
-            <div class="passion-body">
-              <h3><span lang="fr">Rédaction</span><span lang="en">Writing</span></h3>
-              <span class="ph-tag"></span>
-              <span class="passion-more"><span lang="fr">En découvrir plus</span><span lang="en">Find out more</span></span>
-            </div>
-          </div>
-
-        </div>
+        <div class="carousel-track" id="passions-track"></div>
         <div class="carousel-progress"><div class="carousel-progress-bar"></div></div>
       </div>
     </div>
@@ -582,42 +193,32 @@
       <div>
         <p class="section-label" data-reveal><span class="accent">09 —</span> <span lang="fr">CONTACT</span><span lang="en">CONTACT</span></p>
         <h2 class="contact-title" data-reveal>Contact me</h2>
-
-        <div class="contact-rows" data-reveal>
-          <div class="contact-row">
-            <span class="contact-row-label">LINKEDIN</span>
-            <a class="contact-row-value" href="https://www.linkedin.com/in/profil-mariam-mdoreuli" target="_blank" rel="noopener">Mariam Mdoreuli</a>
-          </div>
-          <div class="contact-row">
-            <span class="contact-row-label"><span lang="fr">EMAIL</span><span lang="en">EMAIL</span></span>
-            <a class="contact-row-value" href="mailto:mariammdoreuli@gmail.com">mariammdoreuli@gmail.com</a>
-          </div>
-          <div class="contact-row">
-            <span class="contact-row-label"><span lang="fr">TÉLÉPHONE</span><span lang="en">PHONE</span></span>
-            <a class="contact-row-value" href="tel:+33767881508">07 . 67 . 88 . 15 . 08</a>
-          </div>
-        </div>
-
-        <div class="hero-cta" data-reveal>
-          <a href="#" class="btn btn-primary"><span lang="fr">Télécharger mon CV (PDF)</span><span lang="en">Download my CV (PDF)</span></a>
-          <a href="mailto:mariammdoreuli@gmail.com" class="btn btn-outline"><span lang="fr">M'écrire un email</span><span lang="en">Send me an email</span></a>
-        </div>
+        <div class="contact-rows" id="contact-rows" data-reveal></div>
+        <div class="hero-cta" id="contact-cta" data-reveal></div>
       </div>
-      <div class="contact-visual" data-reveal>
-        <div class="ph"><span class="ph-caption"><span lang="fr">illustration / avatar — à ajouter</span><span lang="en">illustration / avatar — to add</span></span></div>
-      </div>
+      <div class="contact-visual" id="contact-visual" data-reveal></div>
     </div>
   </section>
 
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <span>MDOREULI MARIAM — <span lang="fr">PORTFOLIO</span><span lang="en">PORTFOLIO</span> <span id="year"></span></span>
-    <span>RENNES, FRANCE</span>
-  </div>
+  <div class="container footer-inner" id="footer-inner"></div>
 </footer>
 
 <script src="js/script.js"></script>
+<script src="js/content.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function (user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function () {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
