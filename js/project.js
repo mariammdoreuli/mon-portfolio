@@ -17,6 +17,19 @@
     return '<span lang="fr">' + esc(fr) + '</span><span lang="en">' + esc(en || fr) + '</span>';
   }
 
+  // Rich-text fields (edited with the /admin "richtext" widget) store real
+  // HTML. Older entries still hold plain text — detect and fall back to
+  // nl2p-style paragraph formatting for those.
+  function richHtml(str) {
+    if (!str) return "";
+    if (/<[a-z][\s\S]*>/i.test(str)) return str;
+    return nl2p(str);
+  }
+
+  function biRich(fr, en) {
+    return '<span lang="fr">' + richHtml(fr) + '</span><span lang="en">' + richHtml(en || fr) + '</span>';
+  }
+
   function imgOrPlaceholder(src, captionFr, captionEn, extraClass) {
     extraClass = extraClass || "";
     if (src) return '<img class="' + extraClass + '" src="' + esc(src) + '" alt="' + esc(captionFr || "") + '">';
@@ -77,9 +90,9 @@
 
     byId("project-body").style.display = "";
     byId("project-about").innerHTML =
-      '<p class="lede">' + bi(p.lede_fr, p.lede_en) + "</p>" +
-      '<div lang="fr">' + nl2p(p.body_fr) + "</div>" +
-      '<div lang="en">' + nl2p(p.body_en) + "</div>";
+      '<div class="lede">' + biRich(p.lede_fr, p.lede_en) + "</div>" +
+      '<div lang="fr">' + richHtml(p.body_fr) + "</div>" +
+      '<div lang="en">' + richHtml(p.body_en) + "</div>";
     byId("project-details").innerHTML =
       "<p style=\"margin:0 0 6px;\"><strong>" + bi("Rôle", "Role") + " :</strong> " + bi(p.role_fr, p.role_en) + "</p>" +
       "<p style=\"margin:0;\"><strong>" + bi("Outils", "Tools") + " :</strong> " + bi(p.tools_fr, p.tools_en) + "</p>";

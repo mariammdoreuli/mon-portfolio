@@ -285,6 +285,19 @@ html[data-lang="en"] .lang-option[data-set-lang="en"] { color: var(--accent); }
 }
 .section-dark .custom-section-body p { color: var(--on-dark-soft); }
 
+/* ---------- Rich text (bold/italic/color/link from the /admin editor) ---------- */
+.hero-lede a,
+#profil-body a,
+.custom-section-body a,
+#project-about a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+#profil-body div[lang] p,
+#project-about div[lang] p {
+  margin: 0 0 16px;
+}
+
 .section-label {
   font-family: var(--font-mono);
   font-size: 0.76rem;

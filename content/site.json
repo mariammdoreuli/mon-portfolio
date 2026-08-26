@@ -50,5 +50,16 @@
     "accent": "#c43d2b",
     "dark": "#131110",
     "cream": "#f3ece2"
+  },
+  "visibility": {
+    "profil": true,
+    "competences": true,
+    "experiences": true,
+    "quote": true,
+    "education": true,
+    "projets": true,
+    "formations": true,
+    "outils": true,
+    "passions": true
   }
 }

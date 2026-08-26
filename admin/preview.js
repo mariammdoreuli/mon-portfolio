@@ -18,6 +18,13 @@
     return '<div class="ph ' + (extraClass || "") + '" style="position:relative;min-height:120px;">' +
       '<span class="ph-caption">' + esc(caption || "image à ajouter") + "</span></div>";
   }
+  // Rich-text fields store real HTML (from the "richtext" widget). Older
+  // entries still hold plain text — detect and fall back to nl2p for those.
+  function richHtml(str) {
+    if (!str) return "";
+    if (/<[a-z][\s\S]*>/i.test(str)) return str;
+    return nl2p(str);
+  }
 
   var FONT_PAIRINGS = {
     archivo: { heading: '"Archivo", sans-serif', body: '"Archivo", sans-serif' },
@@ -107,7 +114,7 @@
               '<p class="hero-eyebrow">' + esc(hero.eyebrow_fr) + "</p>" +
               "<h1>" + esc(hero.name || "").replace(/\s+/g, "<br>") + "</h1>" +
               '<p class="hero-role">' + esc(hero.role_fr) + "</p>" +
-              '<p class="hero-lede">' + esc(hero.lede_fr) + "</p>" +
+              '<div class="hero-lede">' + richHtml(hero.lede_fr) + "</div>" +
             "</div>" +
             (heroImg
               ? '<img src="' + heroImg + '" style="width:100%;height:100%;object-fit:cover;">'
@@ -118,7 +125,7 @@
           '<div style="padding:32px 20px;">' +
             '<p class="section-label"><span class="accent">01 —</span> PROFIL</p>' +
             '<h2 class="section-title">Qui suis-je ?</h2>' +
-            nl2p(profil.body_fr) +
+            richHtml(profil.body_fr) +
             '<div style="display:flex;flex-wrap:wrap;margin-top:20px;">' + statsHtml + "</div>" +
             (profilImg ? '<img src="' + profilImg + '" style="max-width:220px;border-radius:10px;margin-top:20px;">' : "") +
           "</div>" +
@@ -277,7 +284,7 @@
         return '<div class="' + cls + '" style="margin-bottom:12px;"><div style="padding:24px 16px;">' +
           (img ? '<img src="' + img + '" style="width:100%;border-radius:10px;margin-bottom:16px;">' : "") +
           '<h2 class="section-title">' + esc(s.title_fr) + "</h2>" +
-          '<div class="custom-section-body" title="Modifiable dans le champ Texte">' + nl2p(s.body_fr) + "</div>" +
+          '<div class="custom-section-body" title="Modifiable dans le champ Texte">' + richHtml(s.body_fr) + "</div>" +
           '<p style="margin-top:12px;font-family:var(--font-mono);font-size:0.75rem;opacity:0.6;">Menu : ' + esc(s.nav_label_fr) + "</p>" +
         "</div></div>";
       }).join("") || '<p style="padding:16px;opacity:0.6;">Aucune section pour l’instant — ajoute-en une ci-dessus.</p>';
@@ -386,6 +393,92 @@
     render: function () { return h("span", {}, String(this.props.value || "")); }
   });
   CMS.registerWidget("stepslider", StepSliderControl, StepSliderPreview);
+
+  /* ---------- Custom widget: rich text editor (gras, italique, souligné,
+     couleur, taille, lien) — façon éditeur de texte / Elementor. Stocke du
+     HTML directement dans le champ JSON. ---------- */
+  var RICHTEXT_COLOR_PRESETS = ["#131110", "#c43d2b", "#2f7bf6", "#1f8a55", "#a8331f", "#7c3aed"];
+  var RICHTEXT_SIZES = [
+    { label: "Petit", cmdValue: "2" },
+    { label: "Normal", cmdValue: "3" },
+    { label: "Grand", cmdValue: "5" },
+    { label: "Très grand", cmdValue: "7" }
+  ];
+  function richBtnStyle(extra) {
+    var base = {
+      minWidth: "26px", height: "26px", padding: "0 6px", borderRadius: "4px",
+      border: "1px solid #ddd", background: "#fff", cursor: "pointer", fontSize: "13px", lineHeight: "24px"
+    };
+    for (var k in extra) base[k] = extra[k];
+    return base;
+  }
+  var RichTextControl = createClass({
+    componentDidMount: function () {
+      if (this.editorEl) this.editorEl.innerHTML = this.props.value || "";
+      try { document.execCommand("styleWithCSS", false, true); } catch (e) {}
+    },
+    handleInput: function () {
+      if (this.editorEl) this.props.onChange(this.editorEl.innerHTML);
+    },
+    exec: function (cmd, value) {
+      var self = this;
+      return function (e) {
+        e.preventDefault();
+        if (self.editorEl) self.editorEl.focus();
+        try { document.execCommand(cmd, false, value); } catch (err) {}
+        self.handleInput();
+      };
+    },
+    handleLink: function (e) {
+      e.preventDefault();
+      if (this.editorEl) this.editorEl.focus();
+      var url = window.prompt("Adresse du lien (URL) :", "https://");
+      if (url) { try { document.execCommand("createLink", false, url); } catch (err) {} }
+      this.handleInput();
+    },
+    render: function () {
+      var self = this;
+      return h(
+        "div",
+        { style: { border: "1px solid #ddd", borderRadius: "6px" } },
+        h(
+          "div",
+          { style: { display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px", padding: "6px", borderBottom: "1px solid #eee", background: "#fafafa" } },
+          h("button", { type: "button", title: "Gras", onMouseDown: self.exec("bold"), style: richBtnStyle({ fontWeight: "700" }) }, "G"),
+          h("button", { type: "button", title: "Italique", onMouseDown: self.exec("italic"), style: richBtnStyle({ fontStyle: "italic" }) }, "I"),
+          h("button", { type: "button", title: "Souligné", onMouseDown: self.exec("underline"), style: richBtnStyle({ textDecoration: "underline" }) }, "S"),
+          h("button", { type: "button", title: "Ajouter un lien", onMouseDown: self.handleLink, style: richBtnStyle() }, "Lien"),
+          h("button", { type: "button", title: "Retirer le lien", onMouseDown: self.exec("unlink"), style: richBtnStyle() }, "✕Lien"),
+          h("span", { style: { width: "1px", alignSelf: "stretch", background: "#ddd", margin: "0 4px" } }),
+          RICHTEXT_SIZES.map(function (s) {
+            return h("button", { key: s.label, type: "button", title: s.label, onMouseDown: self.exec("fontSize", s.cmdValue), style: richBtnStyle() }, s.label[0]);
+          }),
+          h("span", { style: { width: "1px", alignSelf: "stretch", background: "#ddd", margin: "0 4px" } }),
+          h("button", { type: "button", title: "Couleur par défaut", onMouseDown: self.exec("foreColor", "inherit"), style: richBtnStyle() }, "⌀"),
+          RICHTEXT_COLOR_PRESETS.map(function (hex) {
+            return h("button", {
+              key: hex, type: "button", title: hex,
+              onMouseDown: self.exec("foreColor", hex),
+              style: { width: "22px", height: "22px", borderRadius: "50%", background: hex, border: "2px solid #fff", boxShadow: "0 0 0 1px #ddd", cursor: "pointer", padding: 0 }
+            });
+          })
+        ),
+        h("div", {
+          ref: function (el) { self.editorEl = el; },
+          contentEditable: true,
+          onInput: self.handleInput,
+          onBlur: self.handleInput,
+          style: { minHeight: "90px", padding: "10px 12px", fontSize: "14px", lineHeight: "1.5", outline: "none" }
+        })
+      );
+    }
+  });
+  var RichTextPreview = createClass({
+    render: function () {
+      return h("div", { dangerouslySetInnerHTML: { __html: this.props.value || "" } });
+    }
+  });
+  CMS.registerWidget("richtext", RichTextControl, RichTextPreview);
 
   GOOGLE_FONT_URLS.forEach(function (url) {
     CMS.registerPreviewStyle(url, { raw: true });
