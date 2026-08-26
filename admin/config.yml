@@ -81,6 +81,52 @@ collections:
               - { label: "Couleur d'accent (ex: #c43d2b)", name: "accent", widget: "string" }
               - { label: "Couleur fond sombre", name: "dark", widget: "string" }
               - { label: "Couleur fond clair", name: "cream", widget: "string" }
+              - label: "Style de police"
+                name: "font_pairing"
+                widget: select
+                default: "archivo"
+                options:
+                  - { label: "Moderne (Archivo)", value: "archivo" }
+                  - { label: "Élégant (Playfair Display)", value: "playfair" }
+                  - { label: "Rond & doux (Poppins)", value: "poppins" }
+                  - { label: "Corporate (Montserrat)", value: "montserrat" }
+              - label: "Taille du texte"
+                name: "font_size"
+                widget: select
+                default: "normal"
+                options:
+                  - { label: "Compact", value: "compact" }
+                  - { label: "Normal", value: "normal" }
+                  - { label: "Grand", value: "large" }
+
+  - name: "sections"
+    label: "Sections personnalisées (nouveaux onglets)"
+    files:
+      - name: "sections"
+        label: "Ajouter des sections à la page d'accueil"
+        file: "content/sections.json"
+        fields:
+          - label: "Sections"
+            name: "items"
+            widget: list
+            summary: "{{fields.nav_label_fr}}"
+            fields:
+              - { label: "Nom dans le menu (FR)", name: "nav_label_fr", widget: "string", hint: "Ex: Blog, Références, Certifications..." }
+              - { label: "Nom dans le menu (EN)", name: "nav_label_en", widget: "string" }
+              - { label: "Titre de la section (FR)", name: "title_fr", widget: "string" }
+              - { label: "Titre de la section (EN)", name: "title_en", widget: "string" }
+              - { label: "Texte (FR)", name: "body_fr", widget: "text" }
+              - { label: "Texte (EN)", name: "body_en", widget: "text" }
+              - label: "Fond de la section"
+                name: "style"
+                widget: select
+                default: "cream"
+                options:
+                  - { label: "Clair (crème)", value: "cream" }
+                  - { label: "Blanc", value: "white" }
+                  - { label: "Sombre", value: "dark" }
+                  - { label: "Clair alternatif", value: "soft" }
+              - { label: "Image (optionnelle)", name: "image", widget: "image", required: false }
 
   - name: "skills"
     label: "Compétences"

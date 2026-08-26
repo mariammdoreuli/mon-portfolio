@@ -30,10 +30,12 @@
 
   Promise.all([
     fetch("../content/projects.json", { cache: "no-cache" }).then(function (r) { return r.json(); }),
-    fetch("../content/site.json", { cache: "no-cache" }).then(function (r) { return r.json(); })
+    fetch("../content/site.json", { cache: "no-cache" }).then(function (r) { return r.json(); }),
+    fetch("../content/sections.json", { cache: "no-cache" }).then(function (r) { return r.json(); })
   ]).then(function (results) {
     var projects = results[0].items;
     var site = results[1];
+    var customSections = (results[2] && results[2].items) || [];
 
     var cvLink = byId("cv-link");
     if (cvLink && site.contact && site.contact.cv_url) cvLink.setAttribute("href", site.contact.cv_url);
@@ -44,7 +46,10 @@
         "<span>" + esc(site.footer.name_line) + " — " + bi("PORTFOLIO", "PORTFOLIO") + "</span>" +
         "<span>" + esc(site.footer.location) + "</span>";
     }
-    if (site.theme && window.PortfolioUI) window.PortfolioUI.applyTheme(site.theme);
+    if (window.PortfolioUI) {
+      window.PortfolioUI.injectCustomNav(customSections, "../index.html#");
+      if (site.theme) window.PortfolioUI.applyTheme(site.theme);
+    }
 
     var index = projects.findIndex(function (p) { return p.slug === slug; });
     if (index === -1) index = 0;

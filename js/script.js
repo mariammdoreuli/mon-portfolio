@@ -145,18 +145,111 @@
     });
   }
 
+  var FONT_PAIRINGS = {
+    archivo: {
+      heading: '"Archivo", "Helvetica Neue", Arial, sans-serif',
+      body: '"Archivo", "Helvetica Neue", Arial, sans-serif',
+      googleFontsUrl: null
+    },
+    playfair: {
+      heading: '"Playfair Display", Georgia, serif',
+      body: '"Inter", "Helvetica Neue", Arial, sans-serif',
+      googleFontsUrl: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+    },
+    poppins: {
+      heading: '"Poppins", "Helvetica Neue", Arial, sans-serif',
+      body: '"Poppins", "Helvetica Neue", Arial, sans-serif',
+      googleFontsUrl: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    },
+    montserrat: {
+      heading: '"Montserrat", "Helvetica Neue", Arial, sans-serif',
+      body: '"Source Sans 3", "Helvetica Neue", Arial, sans-serif',
+      googleFontsUrl: "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+    }
+  };
+
+  function loadGoogleFont(url) {
+    if (!url) return;
+    var id = "gf-" + btoa(url).replace(/[^a-zA-Z0-9]/g, "").slice(0, 24);
+    if (document.getElementById(id)) return;
+    var link = document.createElement("link");
+    link.id = id;
+    link.rel = "stylesheet";
+    link.href = url;
+    document.head.appendChild(link);
+  }
+
   function applyTheme(theme) {
     if (!theme) return;
     var root = document.documentElement.style;
     if (theme.accent) root.setProperty("--accent", theme.accent);
     if (theme.dark) root.setProperty("--dark", theme.dark);
     if (theme.cream) root.setProperty("--cream", theme.cream);
+
+    var pairing = FONT_PAIRINGS[theme.font_pairing] || FONT_PAIRINGS.archivo;
+    loadGoogleFont(pairing.googleFontsUrl);
+    root.setProperty("--font-heading", pairing.heading);
+    root.setProperty("--font-body", pairing.body);
+
+    var fontSize = ["compact", "normal", "large"].indexOf(theme.font_size) !== -1 ? theme.font_size : "normal";
+    document.documentElement.setAttribute("data-fontsize", fontSize);
+  }
+
+  var SECTION_BG_CLASS = {
+    cream: "section",
+    white: "section section-white",
+    dark: "section section-dark",
+    soft: "section section-soft"
+  };
+
+  function renderCustomSections(sections, mountId) {
+    var mount = document.getElementById(mountId);
+    if (!mount || !sections || !sections.length) return;
+    function esc(s) { return s == null ? "" : String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+    function bi(fr, en) { return '<span lang="fr">' + esc(fr) + '</span><span lang="en">' + esc(en || fr) + "</span>"; }
+    function nl2p(str) {
+      if (!str) return "";
+      return String(str).split(/\n\s*\n/).map(function (p) {
+        return "<p>" + esc(p).replace(/\n/g, "<br>") + "</p>";
+      }).join("");
+    }
+    mount.innerHTML = sections.map(function (s, i) {
+      var cls = SECTION_BG_CLASS[s.style] || SECTION_BG_CLASS.cream;
+      var image = s.image
+        ? '<div class="custom-section-image"><img src="' + esc(s.image) + '" alt=""></div>'
+        : "";
+      return '<section class="' + cls + '" id="custom-' + (i + 1) + '">' +
+        '<div class="container">' +
+          image +
+          '<h2 class="section-title" data-reveal>' + bi(s.title_fr, s.title_en) + "</h2>" +
+          '<div class="custom-section-body" data-reveal>' +
+            '<div lang="fr">' + nl2p(s.body_fr) + "</div>" +
+            '<div lang="en">' + nl2p(s.body_en) + "</div>" +
+          "</div>" +
+        "</div>" +
+      "</section>";
+    }).join("");
+  }
+
+  function injectCustomNav(sections, hrefPrefix) {
+    var nav = document.getElementById("main-nav");
+    if (!nav || !sections || !sections.length) return;
+    hrefPrefix = hrefPrefix || "#";
+    function esc(s) { return s == null ? "" : String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+    sections.forEach(function (s, i) {
+      var a = document.createElement("a");
+      a.href = hrefPrefix + "custom-" + (i + 1);
+      a.innerHTML = '<span lang="fr">' + esc(s.nav_label_fr) + '</span><span lang="en">' + esc(s.nav_label_en || s.nav_label_fr) + "</span>";
+      nav.appendChild(a);
+    });
   }
 
   window.PortfolioUI = {
     initReveal: initReveal,
     initCarousels: initCarousels,
     applyTheme: applyTheme,
+    renderCustomSections: renderCustomSections,
+    injectCustomNav: injectCustomNav,
     refresh: function () {
       initReveal();
       initCarousels();

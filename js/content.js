@@ -237,7 +237,8 @@
       fetchJSON("content/projects.json"),
       fetchJSON("content/formations.json"),
       fetchJSON("content/tools.json"),
-      fetchJSON("content/passions.json")
+      fetchJSON("content/passions.json"),
+      fetchJSON("content/sections.json")
     ]).then(function (results) {
       var site = results[0];
       renderHero(site);
@@ -252,8 +253,13 @@
       renderFormations(results[5].items);
       renderTools(results[6]);
       renderPassions(results[7].items);
-      if (site.theme && window.PortfolioUI) window.PortfolioUI.applyTheme(site.theme);
-      if (window.PortfolioUI) window.PortfolioUI.refresh();
+      var customSections = (results[8] && results[8].items) || [];
+      if (window.PortfolioUI) {
+        window.PortfolioUI.renderCustomSections(customSections, "custom-sections");
+        window.PortfolioUI.injectCustomNav(customSections, "#");
+        if (site.theme) window.PortfolioUI.applyTheme(site.theme);
+        window.PortfolioUI.refresh();
+      }
     }).catch(function (err) {
       console.error("Content load error:", err);
     });
