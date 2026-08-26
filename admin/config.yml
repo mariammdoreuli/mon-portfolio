@@ -18,6 +18,7 @@ collections:
           - label: "Photo de couverture (hero)"
             name: "hero"
             widget: object
+            collapsed: true
             fields:
               - { label: "Bandeau (FR)", name: "eyebrow_fr", widget: "string" }
               - { label: "Bandeau (EN)", name: "eyebrow_en", widget: "string" }
@@ -38,6 +39,7 @@ collections:
           - label: "Profil"
             name: "profil"
             widget: object
+            collapsed: true
             fields:
               - { label: "Texte (FR)", name: "body_fr", widget: "text" }
               - { label: "Texte (EN)", name: "body_en", widget: "text" }
@@ -52,6 +54,7 @@ collections:
           - label: "Citation"
             name: "quote"
             widget: object
+            collapsed: true
             fields:
               - { label: "Texte (FR)", name: "text_fr", widget: "text" }
               - { label: "Texte (EN)", name: "text_en", widget: "text" }
@@ -60,6 +63,7 @@ collections:
           - label: "Contact"
             name: "contact"
             widget: object
+            collapsed: true
             fields:
               - { label: "LinkedIn — nom affiché", name: "linkedin_label", widget: "string" }
               - { label: "LinkedIn — lien", name: "linkedin_url", widget: "string" }
@@ -71,16 +75,27 @@ collections:
           - label: "Pied de page"
             name: "footer"
             widget: object
+            collapsed: true
             fields:
               - { label: "Nom", name: "name_line", widget: "string" }
               - { label: "Localisation", name: "location", widget: "string" }
-          - label: "Couleurs du site"
+          - label: "Couleurs & style"
             name: "theme"
             widget: object
+            collapsed: true
             fields:
-              - { label: "Couleur d'accent (ex: #c43d2b)", name: "accent", widget: "string" }
-              - { label: "Couleur fond sombre", name: "dark", widget: "string" }
-              - { label: "Couleur fond clair", name: "cream", widget: "string" }
+              - label: "Couleur d'accent"
+                name: "accent"
+                widget: "colorswatch"
+                presets: ["#c43d2b", "#a8331f", "#2f7bf6", "#1f8a55", "#c98a1f", "#7c3aed"]
+              - label: "Couleur fond sombre"
+                name: "dark"
+                widget: "colorswatch"
+                presets: ["#131110", "#0d1117", "#1a1a2e", "#111827", "#1c1917", "#000000"]
+              - label: "Couleur fond clair"
+                name: "cream"
+                widget: "colorswatch"
+                presets: ["#f3ece2", "#ffffff", "#f5f5f4", "#fdf6e3", "#f0f4f8", "#faf5ff"]
               - label: "Style de police"
                 name: "font_pairing"
                 widget: select
@@ -92,7 +107,7 @@ collections:
                   - { label: "Corporate (Montserrat)", value: "montserrat" }
               - label: "Taille du texte"
                 name: "font_size"
-                widget: select
+                widget: "stepslider"
                 default: "normal"
                 options:
                   - { label: "Compact", value: "compact" }

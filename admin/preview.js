@@ -101,7 +101,7 @@
       }).join("");
 
       var html =
-        '<section class="hero" style="padding-top:0;">' +
+        '<section class="hero" title="Modifiable dans le champ Hero" style="padding-top:0;">' +
           '<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">' +
             '<div class="hero-text" style="padding:32px 20px;">' +
               '<p class="hero-eyebrow">' + esc(hero.eyebrow_fr) + "</p>" +
@@ -125,14 +125,14 @@
         "</section>" +
         '<section class="section section-dark quote-section" style="padding:48px 0;">' +
           '<div style="padding:0 20px;">' +
-            '<p class="quote-text" style="font-size:1.5rem;">' + esc(quote.text_fr) + "</p>" +
+            '<p class="quote-text" title="Modifiable dans le champ Citation" style="font-size:1.5rem;">' + esc(quote.text_fr) + "</p>" +
             '<p class="quote-label">' + esc(quote.label_fr) + "</p>" +
           "</div>" +
         "</section>" +
         '<section class="section section-dark">' +
           '<div style="padding:32px 20px;">' +
             '<p class="section-label"><span class="accent">09 —</span> CONTACT</p>' +
-            '<h2 class="contact-title" style="font-size:2.2rem;">Contact me</h2>' +
+            '<h2 class="contact-title" title="Modifiable dans le champ Contact" style="font-size:2.2rem;">Contact me</h2>' +
             '<div class="contact-rows">' +
               '<div class="contact-row"><span class="contact-row-label">EMAIL</span><span class="contact-row-value">' + esc(contact.email) + "</span></div>" +
               '<div class="contact-row"><span class="contact-row-label">TÉLÉPHONE</span><span class="contact-row-value">' + esc(contact.phone_display) + "</span></div>" +
@@ -157,7 +157,7 @@
       } else {
         body = "<ul>" + (cat.items || []).map(function (it) { return "<li>" + esc(it.fr) + "</li>"; }).join("") + "</ul>";
       }
-      return '<div class="skill-card" style="margin-bottom:16px;"><div class="card-top-row"><span class="card-eyebrow">' +
+      return '<div class="skill-card" title="Modifiable dans la liste Catégories" style="margin-bottom:16px;"><div class="card-top-row"><span class="card-eyebrow">' +
         esc((cat.title_fr || "").toUpperCase()) + "</span></div>" + body + "</div>";
     }).join("");
     return '<div class="section"><div style="padding:24px 16px;"><h2 class="section-title">Ce que je sais faire</h2>' + cards + "</div></div>";
@@ -169,7 +169,7 @@
     var cards = items.map(function (e) {
       var list = "<ul>" + (e.items || []).map(function (it) { return "<li>" + esc(it.fr) + "</li>"; }).join("") + "</ul>";
       var result = e.result_fr ? '<p class="exp-result">' + esc(e.result_fr) + "</p>" : "";
-      return '<article class="exp-card" style="margin-bottom:16px;"><span class="exp-date">' + esc(e.date) + "</span>" +
+      return '<article class="exp-card" title="Modifiable dans la liste Expériences" style="margin-bottom:16px;"><span class="exp-date">' + esc(e.date) + "</span>" +
         "<h3>" + esc(e.title_fr) + "</h3><p class=\"exp-org\">" + esc(e.org_fr) + "</p>" + list + result + "</article>";
     }).join("");
     return '<div class="section section-white"><div style="padding:24px 16px;"><h2 class="section-title">Expériences</h2>' + cards + "</div></div>";
@@ -179,7 +179,7 @@
   var EducationPreview = makeThemedPreview(function (d) {
     var items = d.items || [];
     var rows = items.map(function (ed) {
-      return '<div class="edu-row" style="grid-template-columns:100px 1fr;"><span class="edu-date">' + esc(ed.date) + "</span>" +
+      return '<div class="edu-row" title="Modifiable dans la liste Diplômes" style="grid-template-columns:100px 1fr;"><span class="edu-date">' + esc(ed.date) + "</span>" +
         "<div><h3 class=\"edu-title\">" + esc(ed.title_fr) + "</h3><p class=\"edu-org\">" + esc(ed.org_fr || ed.org) + "</p></div></div>";
     }).join("");
     return '<div class="section"><div style="padding:24px 16px;"><h2 class="section-title">Parcours académique</h2>' + rows + "</div></div>";
@@ -199,7 +199,7 @@
       var props = this.props;
       var cards = items.map(function (p) {
         var img = assetUrl(props, p.image);
-        return '<a class="project-card" style="margin-bottom:20px;display:block;">' +
+        return '<a class="project-card" title="Modifiable dans la liste Projets" style="margin-bottom:20px;display:block;">' +
           (img ? '<img class="project-thumb" src="' + img + '" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;">' : ph("capture — à ajouter", "project-thumb")) +
           '<div class="project-meta-row"><h3>' + esc(p.category_fr) + "</h3></div>" +
           '<span class="project-tag">' + esc(p.tag_fr) + "</span>" +
@@ -216,14 +216,14 @@
   var FormationsPreview = makeThemedPreview(function (d) {
     var items = d.items || [];
     var rows = items.map(function (f) {
-      return '<div class="formation-row"><h3>' + esc(f.title_fr) + "</h3><p>" + esc(f.desc_fr) + "</p></div>";
+      return '<div class="formation-row" title="Modifiable dans la liste Formations"><h3>' + esc(f.title_fr) + "</h3><p>" + esc(f.desc_fr) + "</p></div>";
     }).join("");
     return '<div class="section"><div style="padding:24px 16px;"><h2 class="section-title">Certifications &amp; formations</h2>' + rows + "</div></div>";
   });
 
   /* ---------- Tools ---------- */
   var ToolsPreview = makeThemedPreview(function (d) {
-    var badges = (d.badges || []).map(function (b) { return '<div class="tool-badge">' + esc(b) + "</div>"; }).join("");
+    var badges = (d.badges || []).map(function (b) { return '<div class="tool-badge" title="Modifiable dans Badges">' + esc(b) + "</div>"; }).join("");
     var groups = (d.groups || []).map(function (g) {
       var items = (g.items || []).map(function (it) { return "<li><strong>" + esc(it.name) + "</strong> — " + esc(it.desc_fr) + "</li>"; }).join("");
       return '<div class="tool-group"><h4>' + esc(g.title_fr) + "</h4><ul>" + items + "</ul></div>";
@@ -247,7 +247,7 @@
       var props = this.props;
       var cards = items.map(function (p) {
         var img = assetUrl(props, p.image);
-        return '<div class="passion-card" style="margin-bottom:16px;">' +
+        return '<div class="passion-card" title="Modifiable dans la liste Passions" style="margin-bottom:16px;">' +
           (img ? '<img class="passion-thumb" src="' + img + '" style="width:100%;aspect-ratio:3/4;object-fit:cover;">' : ph("photo — à ajouter", "passion-thumb")) +
           '<div class="passion-body"><h3>' + esc(p.title_fr) + "</h3></div>" +
         "</div>";
@@ -277,7 +277,7 @@
         return '<div class="' + cls + '" style="margin-bottom:12px;"><div style="padding:24px 16px;">' +
           (img ? '<img src="' + img + '" style="width:100%;border-radius:10px;margin-bottom:16px;">' : "") +
           '<h2 class="section-title">' + esc(s.title_fr) + "</h2>" +
-          '<div class="custom-section-body">' + nl2p(s.body_fr) + "</div>" +
+          '<div class="custom-section-body" title="Modifiable dans le champ Texte">' + nl2p(s.body_fr) + "</div>" +
           '<p style="margin-top:12px;font-family:var(--font-mono);font-size:0.75rem;opacity:0.6;">Menu : ' + esc(s.nav_label_fr) + "</p>" +
         "</div></div>";
       }).join("") || '<p style="padding:16px;opacity:0.6;">Aucune section pour l’instant — ajoute-en une ci-dessus.</p>';
@@ -292,12 +292,116 @@
     "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap",
     "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
   ];
+  /* ---------- Custom widget: color picker + preset swatches ---------- */
+  var DEFAULT_COLOR_PRESETS = ["#c43d2b", "#131110", "#f3ece2", "#2f7bf6", "#1f8a55", "#a8331f"];
+
+  var ColorSwatchControl = createClass({
+    handleInput: function (e) { this.props.onChange(e.target.value); },
+    handleSwatch: function (hex) { this.props.onChange(hex); },
+    render: function () {
+      var value = this.props.value || "#131110";
+      var fieldPresets = this.props.field && this.props.field.get && this.props.field.get("presets");
+      var presets = fieldPresets ? fieldPresets.toJS() : DEFAULT_COLOR_PRESETS;
+      var self = this;
+      return h(
+        "div",
+        { style: { display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap", padding: "4px 0" } },
+        h("input", {
+          type: "color",
+          value: /^#([0-9a-f]{6})$/i.test(value) ? value : "#131110",
+          onChange: this.handleInput,
+          style: { width: "42px", height: "34px", padding: 0, border: "1px solid #ddd", borderRadius: "6px", cursor: "pointer" }
+        }),
+        h("input", {
+          type: "text",
+          value: value,
+          onChange: this.handleInput,
+          style: { width: "96px", fontFamily: "monospace", fontSize: "13px", padding: "7px 8px", border: "1px solid #ddd", borderRadius: "4px" }
+        }),
+        h(
+          "div",
+          { style: { display: "flex", gap: "6px" } },
+          presets.map(function (hex) {
+            var isActive = String(value).toLowerCase() === hex.toLowerCase();
+            return h("button", {
+              key: hex,
+              type: "button",
+              title: hex,
+              onClick: function () { self.handleSwatch(hex); },
+              style: {
+                width: "26px", height: "26px", borderRadius: "50%", background: hex,
+                border: isActive ? "2px solid #222" : "2px solid #fff",
+                boxShadow: "0 0 0 1px #ddd", cursor: "pointer", padding: 0
+              }
+            });
+          })
+        )
+      );
+    }
+  });
+  var ColorSwatchPreview = createClass({
+    render: function () {
+      var value = this.props.value || "";
+      return h("span", { style: { display: "inline-flex", alignItems: "center", gap: "6px" } },
+        h("span", { style: { width: "14px", height: "14px", borderRadius: "50%", background: value, border: "1px solid #ccc", display: "inline-block" } }),
+        value);
+    }
+  });
+  CMS.registerWidget("colorswatch", ColorSwatchControl, ColorSwatchPreview);
+
+  /* ---------- Custom widget: step slider (for a fixed list of options) ---------- */
+  var StepSliderControl = createClass({
+    handleChange: function (e) {
+      var steps = this.getSteps();
+      this.props.onChange(steps[parseInt(e.target.value, 10)].value);
+    },
+    getSteps: function () {
+      var fieldOptions = this.props.field && this.props.field.get && this.props.field.get("options");
+      return fieldOptions ? fieldOptions.toJS() : [{ value: "normal", label: "Normal" }];
+    },
+    render: function () {
+      var steps = this.getSteps();
+      var value = this.props.value || steps[0].value;
+      var idx = steps.map(function (s) { return s.value; }).indexOf(value);
+      if (idx < 0) idx = 0;
+      return h(
+        "div",
+        { style: { padding: "6px 4px 2px" } },
+        h("input", {
+          type: "range", min: 0, max: steps.length - 1, step: 1, value: idx,
+          onChange: this.handleChange,
+          style: { width: "100%", accentColor: "#c43d2b" }
+        }),
+        h(
+          "div",
+          { style: { display: "flex", justifyContent: "space-between", marginTop: "6px", fontSize: "12px", color: "#766d5f" } },
+          steps.map(function (s, i) {
+            return h("span", { key: s.value, style: { fontWeight: i === idx ? "700" : "400", color: i === idx ? "#c43d2b" : "#766d5f" } }, s.label);
+          })
+        )
+      );
+    }
+  });
+  var StepSliderPreview = createClass({
+    render: function () { return h("span", {}, String(this.props.value || "")); }
+  });
+  CMS.registerWidget("stepslider", StepSliderControl, StepSliderPreview);
+
   GOOGLE_FONT_URLS.forEach(function (url) {
     CMS.registerPreviewStyle(url, { raw: true });
   });
   CMS.registerPreviewStyle("/css/style.css");
   CMS.registerPreviewStyle(
-    "body{margin:0;background:var(--cream);} .preview-root{min-height:100%;}",
+    "body{margin:0;background:var(--cream);} .preview-root{min-height:100%;}" +
+    ".preview-root .hero,.preview-root .skill-card,.preview-root .exp-card,.preview-root .edu-row," +
+    ".preview-root .project-card,.preview-root .formation-row,.preview-root .passion-card," +
+    ".preview-root .contact-title,.preview-root .quote-text,.preview-root .custom-section-body," +
+    ".preview-root .tool-badge{transition:outline .1s ease;}" +
+    ".preview-root .hero:hover,.preview-root .skill-card:hover,.preview-root .exp-card:hover," +
+    ".preview-root .edu-row:hover,.preview-root .project-card:hover,.preview-root .formation-row:hover," +
+    ".preview-root .passion-card:hover,.preview-root .contact-title:hover,.preview-root .quote-text:hover," +
+    ".preview-root .custom-section-body:hover,.preview-root .tool-badge:hover{" +
+    "outline:2px dashed #2f7bf6;outline-offset:3px;}",
     { raw: true }
   );
 
