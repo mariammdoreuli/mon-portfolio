@@ -1,5 +1,5 @@
 /* Live preview templates for Decap CMS — reuses the real site CSS so the
-   preview pane looks like the actual published page. `H` (createElement)
+   preview pane looks like the actual published page. `h` (createElement)
    and `createClass` are exposed globally by the CMS bundle. */
 (function () {
   "use strict";
@@ -62,10 +62,10 @@
       render: function () {
         var data = this.props.entry.getIn(["data"]);
         var obj = data ? data.toJS() : {};
-        return H(
+        return h(
           "div",
           { style: themeStyle(this.state.theme), className: "preview-root" },
-          H("div", { dangerouslySetInnerHTML: { __html: renderHtml(obj, this.props) } })
+          h("div", { dangerouslySetInnerHTML: { __html: renderHtml(obj, this.props) } })
         );
       }
     });
@@ -140,8 +140,8 @@
           "</div>" +
         "</section>";
 
-      return H("div", { style: themeStyle(theme), className: "preview-root" },
-        H("div", { dangerouslySetInnerHTML: { __html: html } }));
+      return h("div", { style: themeStyle(theme), className: "preview-root" },
+        h("div", { dangerouslySetInnerHTML: { __html: html } }));
     }
   });
 
@@ -207,8 +207,8 @@
         "</a>";
       }).join("");
       var html = '<div class="section section-dark"><div style="padding:24px 16px;"><h2 class="section-title">Mes réalisations</h2>' + cards + "</div></div>";
-      return H("div", { style: themeStyle(this.state.theme), className: "preview-root" },
-        H("div", { dangerouslySetInnerHTML: { __html: html } }));
+      return h("div", { style: themeStyle(this.state.theme), className: "preview-root" },
+        h("div", { dangerouslySetInnerHTML: { __html: html } }));
     }
   });
 
@@ -253,8 +253,8 @@
         "</div>";
       }).join("");
       var html = '<div class="section section-soft"><div style="padding:24px 16px;"><h2 class="section-title">Mes passions</h2>' + cards + "</div></div>";
-      return H("div", { style: themeStyle(this.state.theme), className: "preview-root" },
-        H("div", { dangerouslySetInnerHTML: { __html: html } }));
+      return h("div", { style: themeStyle(this.state.theme), className: "preview-root" },
+        h("div", { dangerouslySetInnerHTML: { __html: html } }));
     }
   });
 
@@ -281,8 +281,8 @@
           '<p style="margin-top:12px;font-family:var(--font-mono);font-size:0.75rem;opacity:0.6;">Menu : ' + esc(s.nav_label_fr) + "</p>" +
         "</div></div>";
       }).join("") || '<p style="padding:16px;opacity:0.6;">Aucune section pour l’instant — ajoute-en une ci-dessus.</p>';
-      return H("div", { style: themeStyle(this.state.theme), className: "preview-root" },
-        H("div", { dangerouslySetInnerHTML: { __html: html } }));
+      return h("div", { style: themeStyle(this.state.theme), className: "preview-root" },
+        h("div", { dangerouslySetInnerHTML: { __html: html } }));
     }
   });
 
