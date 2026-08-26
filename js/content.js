@@ -21,6 +21,19 @@
     return '<span lang="fr">' + esc(fr) + '</span><span lang="en">' + esc(en || fr) + '</span>';
   }
 
+  // Rich-text fields (edited with the /admin "richtext" widget) store real
+  // HTML. Older entries still hold plain text — detect and fall back to
+  // nl2p-style paragraph formatting for those.
+  function richHtml(str) {
+    if (!str) return "";
+    if (/<[a-z][\s\S]*>/i.test(str)) return str;
+    return nl2p(str);
+  }
+
+  function biRich(fr, en) {
+    return '<span lang="fr">' + richHtml(fr) + '</span><span lang="en">' + richHtml(en || fr) + '</span>';
+  }
+
   function imgOrPlaceholder(src, captionFr, captionEn, extraClass) {
     extraClass = extraClass || "";
     if (src) {
@@ -46,7 +59,7 @@
         '<p class="hero-eyebrow" data-reveal>' + bi(h.eyebrow_fr, h.eyebrow_en) + "</p>" +
         "<h1 data-reveal>" + esc(h.name).replace(/\s+/g, "<br>") + "</h1>" +
         '<p class="hero-role" data-reveal>' + bi(h.role_fr, h.role_en) + "</p>" +
-        '<p class="hero-lede" data-reveal>' + bi(h.lede_fr, h.lede_en) + "</p>" +
+        '<div class="hero-lede" data-reveal>' + biRich(h.lede_fr, h.lede_en) + "</div>" +
         '<div class="hero-cta" data-reveal>' +
           '<a href="#projets" class="btn btn-primary">' + bi(h.cta_primary_fr, h.cta_primary_en) + "</a>" +
           '<a href="#contact" class="btn btn-outline">' + bi(h.cta_secondary_fr, h.cta_secondary_en) + "</a>" +
@@ -73,8 +86,8 @@
         return '<div><div class="stat-num">' + esc(s.number) + '</div><div class="stat-label">' + bi(s.label_fr, s.label_en) + "</div></div>";
       }).join("");
       bodyEl.innerHTML +=
-        '<div lang="fr">' + nl2p(p.body_fr) + "</div>" +
-        '<div lang="en">' + nl2p(p.body_en) + "</div>" +
+        '<div lang="fr">' + richHtml(p.body_fr) + "</div>" +
+        '<div lang="en">' + richHtml(p.body_en) + "</div>" +
         '<div class="stat-row" data-reveal>' + statsHtml + "</div>";
     }
     var visualEl = byId("profil-visual");
@@ -228,6 +241,31 @@
     }).join("");
   }
 
+  var VISIBILITY_SECTIONS = {
+    profil: "profil",
+    competences: "competences",
+    experiences: "experiences",
+    quote: "quote-section",
+    education: "education",
+    projets: "projets",
+    formations: "formations",
+    outils: "outils",
+    passions: "passions"
+  };
+
+  function applyVisibility(visibility) {
+    visibility = visibility || {};
+    Object.keys(VISIBILITY_SECTIONS).forEach(function (key) {
+      if (visibility[key] === false) {
+        var sectionId = VISIBILITY_SECTIONS[key];
+        var sectionEl = byId(sectionId);
+        if (sectionEl) sectionEl.style.display = "none";
+        var navLink = document.querySelector('#main-nav a[href="#' + sectionId + '"]');
+        if (navLink) navLink.style.display = "none";
+      }
+    });
+  }
+
   function init() {
     Promise.all([
       fetchJSON("content/site.json"),
@@ -253,6 +291,7 @@
       renderFormations(results[5].items);
       renderTools(results[6]);
       renderPassions(results[7].items);
+      applyVisibility(site.visibility);
       var customSections = (results[8] && results[8].items) || [];
       if (window.PortfolioUI) {
         window.PortfolioUI.renderCustomSections(customSections, "custom-sections");

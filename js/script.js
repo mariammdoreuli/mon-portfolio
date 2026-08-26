@@ -213,6 +213,14 @@
         return "<p>" + esc(p).replace(/\n/g, "<br>") + "</p>";
       }).join("");
     }
+    // Rich-text fields (edited with the /admin "richtext" widget) store real
+    // HTML. Older entries still hold plain text — detect and fall back to
+    // nl2p-style paragraph formatting for those.
+    function richHtml(str) {
+      if (!str) return "";
+      if (/<[a-z][\s\S]*>/i.test(str)) return str;
+      return nl2p(str);
+    }
     mount.innerHTML = sections.map(function (s, i) {
       var cls = SECTION_BG_CLASS[s.style] || SECTION_BG_CLASS.cream;
       var image = s.image
@@ -223,8 +231,8 @@
           image +
           '<h2 class="section-title" data-reveal>' + bi(s.title_fr, s.title_en) + "</h2>" +
           '<div class="custom-section-body" data-reveal>' +
-            '<div lang="fr">' + nl2p(s.body_fr) + "</div>" +
-            '<div lang="en">' + nl2p(s.body_en) + "</div>" +
+            '<div lang="fr">' + richHtml(s.body_fr) + "</div>" +
+            '<div lang="en">' + richHtml(s.body_en) + "</div>" +
           "</div>" +
         "</div>" +
       "</section>";

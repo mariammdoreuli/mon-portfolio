@@ -25,8 +25,8 @@ collections:
               - { label: "Nom affiché", name: "name", widget: "string" }
               - { label: "Rôle (FR)", name: "role_fr", widget: "string" }
               - { label: "Rôle (EN)", name: "role_en", widget: "string" }
-              - { label: "Texte d'intro (FR)", name: "lede_fr", widget: "text" }
-              - { label: "Texte d'intro (EN)", name: "lede_en", widget: "text" }
+              - { label: "Texte d'intro (FR)", name: "lede_fr", widget: "richtext" }
+              - { label: "Texte d'intro (EN)", name: "lede_en", widget: "richtext" }
               - { label: "Bouton principal (FR)", name: "cta_primary_fr", widget: "string" }
               - { label: "Bouton principal (EN)", name: "cta_primary_en", widget: "string" }
               - { label: "Bouton secondaire (FR)", name: "cta_secondary_fr", widget: "string" }
@@ -41,8 +41,8 @@ collections:
             widget: object
             collapsed: true
             fields:
-              - { label: "Texte (FR)", name: "body_fr", widget: "text" }
-              - { label: "Texte (EN)", name: "body_en", widget: "text" }
+              - { label: "Texte (FR)", name: "body_fr", widget: "richtext" }
+              - { label: "Texte (EN)", name: "body_en", widget: "richtext" }
               - { label: "Photo", name: "image", widget: "image", required: false }
               - label: "Chiffres clés"
                 name: "stats"
@@ -113,6 +113,21 @@ collections:
                   - { label: "Compact", value: "compact" }
                   - { label: "Normal", value: "normal" }
                   - { label: "Grand", value: "large" }
+          - label: "Sections visibles sur la page"
+            name: "visibility"
+            widget: object
+            collapsed: true
+            hint: "Décoche une section pour la masquer entièrement du site (ex: Citation)."
+            fields:
+              - { label: "Profil (Qui suis-je ?)", name: "profil", widget: "boolean", default: true }
+              - { label: "Compétences", name: "competences", widget: "boolean", default: true }
+              - { label: "Expériences", name: "experiences", widget: "boolean", default: true }
+              - { label: "Citation", name: "quote", widget: "boolean", default: true }
+              - { label: "Education", name: "education", widget: "boolean", default: true }
+              - { label: "Projets", name: "projets", widget: "boolean", default: true }
+              - { label: "Formations", name: "formations", widget: "boolean", default: true }
+              - { label: "Outils", name: "outils", widget: "boolean", default: true }
+              - { label: "Passions", name: "passions", widget: "boolean", default: true }
 
   - name: "sections"
     label: "Sections personnalisées (nouveaux onglets)"
@@ -130,8 +145,8 @@ collections:
               - { label: "Nom dans le menu (EN)", name: "nav_label_en", widget: "string" }
               - { label: "Titre de la section (FR)", name: "title_fr", widget: "string" }
               - { label: "Titre de la section (EN)", name: "title_en", widget: "string" }
-              - { label: "Texte (FR)", name: "body_fr", widget: "text" }
-              - { label: "Texte (EN)", name: "body_en", widget: "text" }
+              - { label: "Texte (FR)", name: "body_fr", widget: "richtext" }
+              - { label: "Texte (EN)", name: "body_en", widget: "richtext" }
               - label: "Fond de la section"
                 name: "style"
                 widget: select
@@ -241,10 +256,10 @@ collections:
               - { label: "Rôle (EN)", name: "role_en", widget: "string" }
               - { label: "Outils (FR)", name: "tools_fr", widget: "string" }
               - { label: "Outils (EN)", name: "tools_en", widget: "string" }
-              - { label: "Accroche (FR)", name: "lede_fr", widget: "text" }
-              - { label: "Accroche (EN)", name: "lede_en", widget: "text" }
-              - { label: "Description complète (FR)", name: "body_fr", widget: "text" }
-              - { label: "Description complète (EN)", name: "body_en", widget: "text" }
+              - { label: "Accroche (FR)", name: "lede_fr", widget: "richtext" }
+              - { label: "Accroche (EN)", name: "lede_en", widget: "richtext" }
+              - { label: "Description complète (FR)", name: "body_fr", widget: "richtext" }
+              - { label: "Description complète (EN)", name: "body_en", widget: "richtext" }
               - { label: "Image du projet", name: "image", widget: "image", required: false }
 
   - name: "formations"
