@@ -47,9 +47,9 @@
     "location": "RENNES, FRANCE"
   },
   "theme": {
-    "accent": "#c43d2b",
-    "dark": "#131110",
-    "cream": "#f3ece2"
+    "accent": "#3d5b81",
+    "dark": "#1b2e4c",
+    "cream": "#ffffff"
   },
   "visibility": {
     "profil": true,
