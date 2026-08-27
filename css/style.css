@@ -1,15 +1,16 @@
 /* ---------- Design tokens ---------- */
 :root {
   --dark: #1d004d;
-  --dark-2: #2c0a66;
-  --dark-card: #3d1680;
-  --dark-border: #5b2a9e;
+  --dark-2: #3a1580;
+  --dark-card: #5b2aa8;
+  --dark-border: #7a4bc4;
   --cream: #ffffff;
   --cream-soft: #f5f1fb;
   --cream-deep: #ece0f7;
   --cream-border: #d9c3ef;
   --accent: #6b2fb3;
   --accent-2: #9d5fd6;
+  --accent-light: #c9a8f0;
   --accent-soft: rgba(107, 47, 179, 0.12);
   --ink: #1d004d;
   --ink-soft: #6b5a8f;
@@ -17,8 +18,8 @@
   --on-dark: #ffffff;
   --on-dark-soft: #cdb8e8;
   --on-dark-mute: #a68bc9;
-  --gradient-dark: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 50%, var(--dark-card) 100%);
-  --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  --gradient-dark: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 55%, var(--dark-card) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 55%, var(--accent-light) 100%);
 
   --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --font-heading: var(--font-display);
