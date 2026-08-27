@@ -300,7 +300,7 @@
     "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
   ];
   /* ---------- Custom widget: color picker + preset swatches ---------- */
-  var DEFAULT_COLOR_PRESETS = ["#c43d2b", "#131110", "#f3ece2", "#2f7bf6", "#1f8a55", "#a8331f"];
+  var DEFAULT_COLOR_PRESETS = ["#6b2fb3", "#1d004d", "#9d5fd6", "#3d1680", "#ffffff", "#000000"];
 
   var ColorSwatchControl = createClass({
     handleInput: function (e) { this.props.onChange(e.target.value); },
@@ -377,13 +377,13 @@
         h("input", {
           type: "range", min: 0, max: steps.length - 1, step: 1, value: idx,
           onChange: this.handleChange,
-          style: { width: "100%", accentColor: "#c43d2b" }
+          style: { width: "100%", accentColor: "#6b2fb3" }
         }),
         h(
           "div",
           { style: { display: "flex", justifyContent: "space-between", marginTop: "6px", fontSize: "12px", color: "#766d5f" } },
           steps.map(function (s, i) {
-            return h("span", { key: s.value, style: { fontWeight: i === idx ? "700" : "400", color: i === idx ? "#c43d2b" : "#766d5f" } }, s.label);
+            return h("span", { key: s.value, style: { fontWeight: i === idx ? "700" : "400", color: i === idx ? "#6b2fb3" : "#766d5f" } }, s.label);
           })
         )
       );
@@ -397,7 +397,7 @@
   /* ---------- Custom widget: rich text editor (gras, italique, souligné,
      couleur, taille, lien) — façon éditeur de texte / Elementor. Stocke du
      HTML directement dans le champ JSON. ---------- */
-  var RICHTEXT_COLOR_PRESETS = ["#131110", "#c43d2b", "#2f7bf6", "#1f8a55", "#a8331f", "#7c3aed"];
+  var RICHTEXT_COLOR_PRESETS = ["#1d004d", "#6b2fb3", "#9d5fd6", "#3d1680", "#000000", "#ffffff"];
   var RICHTEXT_SIZES = [
     { label: "Petit", cmdValue: "2" },
     { label: "Normal", cmdValue: "3" },

@@ -87,15 +87,15 @@ collections:
               - label: "Couleur d'accent"
                 name: "accent"
                 widget: "colorswatch"
-                presets: ["#3d5b81", "#1b2e4c", "#c43d2b", "#2f7bf6", "#1f8a55", "#7c3aed"]
+                presets: ["#6b2fb3", "#9d5fd6", "#1d004d", "#3d1680", "#000000", "#ffffff"]
               - label: "Couleur fond sombre"
                 name: "dark"
                 widget: "colorswatch"
-                presets: ["#1b2e4c", "#131110", "#0d1117", "#1a1a2e", "#111827", "#000000"]
+                presets: ["#1d004d", "#2c0a66", "#3d1680", "#000000", "#150039", "#5b2a9e"]
               - label: "Couleur fond clair"
                 name: "cream"
                 widget: "colorswatch"
-                presets: ["#ffffff", "#f3ece2", "#f5f5f4", "#fdf6e3", "#f0f4f8", "#faf5ff"]
+                presets: ["#ffffff", "#f5f1fb", "#ece0f7", "#d9c3ef", "#f8f5fc", "#000000"]
               - label: "Style de police"
                 name: "font_pairing"
                 widget: select
