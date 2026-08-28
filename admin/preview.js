@@ -26,6 +26,105 @@
     return nl2p(str);
   }
 
+  /* ---------- Click-to-jump: click an element in the preview to scroll to
+     and focus the matching field in the /admin sidebar form (à la Shopify:
+     cliquer sur un bloc à droite ouvre/pointe le bon réglage à gauche).
+     Decap CMS renders this preview inside an iframe, so we reach into
+     window.parent's document. There is no public Decap API for this — it
+     works by matching the visible field label text, so it stays in sync
+     with the `label:` strings in admin/config.yml. Best-effort only: if
+     Decap's markup doesn't match what we expect, it silently does nothing
+     rather than breaking the page. ---------- */
+  function findByText(root, text) {
+    if (!root || !text) return null;
+    var trimmed = text.trim();
+    var all = root.querySelectorAll("*");
+    for (var i = 0; i < all.length; i++) {
+      var node = all[i];
+      if (node.children.length === 0 && node.textContent && node.textContent.trim() === trimmed) {
+        return node;
+      }
+    }
+    return null;
+  }
+
+  function flashHighlight(el) {
+    if (!el || !el.style) return;
+    var prevOutline = el.style.outline;
+    var prevOffset = el.style.outlineOffset;
+    el.style.outline = "3px solid #6b2fb3";
+    el.style.outlineOffset = "2px";
+    setTimeout(function () {
+      el.style.outline = prevOutline;
+      el.style.outlineOffset = prevOffset;
+    }, 1400);
+  }
+
+  function jumpToField(labelText, sectionLabelText, _retried) {
+    try {
+      var doc = window.parent && window.parent.document;
+      if (!doc || !labelText) return;
+      // Scope the label search to the clicked section's own content, so
+      // fields that share the same label text across sections (e.g. two
+      // "Texte (FR)" fields) resolve to the right one. Accordion headers
+      // in Decap are typically followed by their content as the next
+      // sibling — try that first (most precise), then widen if needed.
+      var scope = doc.body;
+      var header = sectionLabelText ? findByText(doc.body, sectionLabelText) : null;
+      if (header && header.nextElementSibling && findByText(header.nextElementSibling, labelText)) {
+        scope = header.nextElementSibling;
+      } else if (header) {
+        var candidate = header;
+        for (var lvl = 0; lvl < 6 && candidate; lvl++) {
+          candidate = candidate.parentElement;
+          if (candidate && candidate.querySelectorAll("input, textarea, select").length >= 1 && findByText(candidate, labelText)) {
+            scope = candidate;
+            break;
+          }
+        }
+      }
+      var label = findByText(scope, labelText);
+      if (!label && scope !== doc.body) label = findByText(doc.body, labelText);
+      if (!label) {
+        if (!_retried && header) {
+          header.click();
+          setTimeout(function () { jumpToField(labelText, sectionLabelText, true); }, 250);
+        }
+        return;
+      }
+      // Find the nearest form control that comes AFTER the label in
+      // document order (the label-precedes-control pattern holds regardless
+      // of whether Decap wraps each field individually or renders them as
+      // flat siblings — unlike walking ancestors and taking the first
+      // descendant input, which can grab an unrelated earlier field).
+      var target = null;
+      var candidates = doc.body.querySelectorAll('input, textarea, [contenteditable="true"], select');
+      for (var i = 0; i < candidates.length; i++) {
+        var c = candidates[i];
+        if (label.compareDocumentPosition(c) & Node.DOCUMENT_POSITION_FOLLOWING) { target = c; break; }
+      }
+      var focusEl = target || label;
+      focusEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (focusEl.focus) focusEl.focus();
+      flashHighlight(focusEl === label ? label : (target.closest ? (target.closest("div") || target) : target));
+    } catch (e) { /* best-effort only */ }
+  }
+
+  function jumpOnClick(labelText, sectionLabelText) {
+    return function () { jumpToField(labelText, sectionLabelText); };
+  }
+
+  function jumpOnClickMap(map) {
+    return function (e) {
+      var el = e.target;
+      for (var i = 0; i < map.length; i++) {
+        var m = map[i];
+        var match = el.closest && el.closest(m.selector);
+        if (match) { jumpToField(m.label, m.section); return; }
+      }
+    };
+  }
+
   var FONT_PAIRINGS = {
     archivo: { heading: '"Archivo", sans-serif', body: '"Archivo", sans-serif' },
     playfair: { heading: '"Playfair Display", serif', body: '"Inter", sans-serif' },
@@ -58,8 +157,11 @@
   }
 
   // Wrapper component: fetches the currently-published theme once, applies
-  // it as inline CSS vars, then renders `renderHtml(data)` inside.
-  function makeThemedPreview(renderHtml) {
+  // it as inline CSS vars, then renders `renderHtml(data)` inside. Clicking
+  // anywhere in the preview jumps the sidebar form to `jumpLabel` (a field
+  // label from config.yml) — these collections show one field per screen,
+  // so any click in the preview can safely jump to that one field.
+  function makeThemedPreview(renderHtml, jumpLabel, jumpSection) {
     return createClass({
       getInitialState: function () { return { theme: publishedThemeCache || {} }; },
       componentDidMount: function () {
@@ -69,9 +171,11 @@
       render: function () {
         var data = this.props.entry.getIn(["data"]);
         var obj = data ? data.toJS() : {};
+        var wrapperProps = { style: themeStyle(this.state.theme), className: "preview-root" };
+        if (jumpLabel) wrapperProps.onClick = jumpOnClick(jumpLabel, jumpSection);
         return h(
           "div",
-          { style: themeStyle(this.state.theme), className: "preview-root" },
+          wrapperProps,
           h("div", { dangerouslySetInnerHTML: { __html: renderHtml(obj, this.props) } })
         );
       }
@@ -89,6 +193,19 @@
   }
 
   /* ---------- Site (hero / profil / quote / contact) ---------- */
+  // Ordered most-specific-first: closest() checks each rule in turn, so a
+  // click on the h1 must match ".hero h1" before it falls through to the
+  // generic ".hero" catch-all.
+  var SITE_CLICK_MAP = [
+    { selector: ".hero-eyebrow", label: "Bandeau (FR)", section: "Photo de couverture (hero)" },
+    { selector: ".hero-lede", label: "Texte d'intro (FR)", section: "Photo de couverture (hero)" },
+    { selector: ".hero h1", label: "Nom affiché", section: "Photo de couverture (hero)" },
+    { selector: ".hero", label: "Texte d'intro (FR)", section: "Photo de couverture (hero)" },
+    { selector: ".section:not(.section-dark)", label: "Texte (FR)", section: "Profil" },
+    { selector: ".quote-section", label: "Texte (FR)", section: "Citation" },
+    { selector: ".contact-title", label: "Email", section: "Contact" },
+    { selector: ".contact-rows", label: "Email", section: "Contact" }
+  ];
   var SitePreview = createClass({
     getInitialState: function () { return {}; },
     render: function () {
@@ -147,7 +264,7 @@
           "</div>" +
         "</section>";
 
-      return h("div", { style: themeStyle(theme), className: "preview-root" },
+      return h("div", { style: themeStyle(theme), className: "preview-root", onClick: jumpOnClickMap(SITE_CLICK_MAP) },
         h("div", { dangerouslySetInnerHTML: { __html: html } }));
     }
   });
@@ -168,7 +285,7 @@
         esc((cat.title_fr || "").toUpperCase()) + "</span></div>" + body + "</div>";
     }).join("");
     return '<div class="section"><div style="padding:24px 16px;"><h2 class="section-title">Ce que je sais faire</h2>' + cards + "</div></div>";
-  });
+  }, "Catégories");
 
   /* ---------- Experiences ---------- */
   var ExperiencesPreview = makeThemedPreview(function (d) {
@@ -180,7 +297,7 @@
         "<h3>" + esc(e.title_fr) + "</h3><p class=\"exp-org\">" + esc(e.org_fr) + "</p>" + list + result + "</article>";
     }).join("");
     return '<div class="section section-white"><div style="padding:24px 16px;"><h2 class="section-title">Expériences</h2>' + cards + "</div></div>";
-  });
+  }, "Expériences");
 
   /* ---------- Education ---------- */
   var EducationPreview = makeThemedPreview(function (d) {
@@ -190,7 +307,7 @@
         "<div><h3 class=\"edu-title\">" + esc(ed.title_fr) + "</h3><p class=\"edu-org\">" + esc(ed.org_fr || ed.org) + "</p></div></div>";
     }).join("");
     return '<div class="section"><div style="padding:24px 16px;"><h2 class="section-title">Parcours académique</h2>' + rows + "</div></div>";
-  });
+  }, "Diplômes");
 
   /* ---------- Projects ---------- */
   var ProjectsPreview = createClass({
@@ -214,7 +331,7 @@
         "</a>";
       }).join("");
       var html = '<div class="section section-dark"><div style="padding:24px 16px;"><h2 class="section-title">Mes réalisations</h2>' + cards + "</div></div>";
-      return h("div", { style: themeStyle(this.state.theme), className: "preview-root" },
+      return h("div", { style: themeStyle(this.state.theme), className: "preview-root", onClick: jumpOnClick("Projets") },
         h("div", { dangerouslySetInnerHTML: { __html: html } }));
     }
   });
@@ -226,7 +343,7 @@
       return '<div class="formation-row" title="Modifiable dans la liste Formations"><h3>' + esc(f.title_fr) + "</h3><p>" + esc(f.desc_fr) + "</p></div>";
     }).join("");
     return '<div class="section"><div style="padding:24px 16px;"><h2 class="section-title">Certifications &amp; formations</h2>' + rows + "</div></div>";
-  });
+  }, "Formations");
 
   /* ---------- Tools ---------- */
   var ToolsPreview = makeThemedPreview(function (d) {
@@ -238,7 +355,7 @@
     return '<div class="section section-soft"><div style="padding:24px 16px;"><h2 class="section-title">Outils</h2>' +
       '<div class="tool-badges" style="grid-template-columns:repeat(3,1fr);margin-bottom:20px;">' + badges + "</div>" +
       '<div class="tool-groups">' + groups + "</div></div></div>";
-  });
+  }, "Badges (liste simple de noms)");
 
   /* ---------- Passions ---------- */
   var PassionsPreview = createClass({
@@ -260,7 +377,7 @@
         "</div>";
       }).join("");
       var html = '<div class="section section-soft"><div style="padding:24px 16px;"><h2 class="section-title">Mes passions</h2>' + cards + "</div></div>";
-      return h("div", { style: themeStyle(this.state.theme), className: "preview-root" },
+      return h("div", { style: themeStyle(this.state.theme), className: "preview-root", onClick: jumpOnClick("Passions") },
         h("div", { dangerouslySetInnerHTML: { __html: html } }));
     }
   });
@@ -288,7 +405,7 @@
           '<p style="margin-top:12px;font-family:var(--font-mono);font-size:0.75rem;opacity:0.6;">Menu : ' + esc(s.nav_label_fr) + "</p>" +
         "</div></div>";
       }).join("") || '<p style="padding:16px;opacity:0.6;">Aucune section pour l’instant — ajoute-en une ci-dessus.</p>';
-      return h("div", { style: themeStyle(this.state.theme), className: "preview-root" },
+      return h("div", { style: themeStyle(this.state.theme), className: "preview-root", onClick: jumpOnClick("Sections") },
         h("div", { dangerouslySetInnerHTML: { __html: html } }));
     }
   });
@@ -485,16 +602,16 @@
   });
   CMS.registerPreviewStyle("/css/style.css");
   CMS.registerPreviewStyle(
-    "body{margin:0;background:var(--cream);} .preview-root{min-height:100%;}" +
+    "body{margin:0;background:var(--cream);} .preview-root{min-height:100%;cursor:pointer;}" +
     ".preview-root .hero,.preview-root .skill-card,.preview-root .exp-card,.preview-root .edu-row," +
     ".preview-root .project-card,.preview-root .formation-row,.preview-root .passion-card," +
-    ".preview-root .contact-title,.preview-root .quote-text,.preview-root .custom-section-body," +
-    ".preview-root .tool-badge{transition:outline .1s ease;}" +
+    ".preview-root .contact-title,.preview-root .contact-rows,.preview-root .quote-text,.preview-root .custom-section-body," +
+    ".preview-root .tool-badge{transition:outline .1s ease;cursor:pointer;}" +
     ".preview-root .hero:hover,.preview-root .skill-card:hover,.preview-root .exp-card:hover," +
     ".preview-root .edu-row:hover,.preview-root .project-card:hover,.preview-root .formation-row:hover," +
-    ".preview-root .passion-card:hover,.preview-root .contact-title:hover,.preview-root .quote-text:hover," +
-    ".preview-root .custom-section-body:hover,.preview-root .tool-badge:hover{" +
-    "outline:2px dashed #2f7bf6;outline-offset:3px;}",
+    ".preview-root .passion-card:hover,.preview-root .contact-title:hover,.preview-root .contact-rows:hover," +
+    ".preview-root .quote-text:hover,.preview-root .custom-section-body:hover,.preview-root .tool-badge:hover{" +
+    "outline:2px dashed #6b2fb3;outline-offset:3px;}",
     { raw: true }
   );
 
